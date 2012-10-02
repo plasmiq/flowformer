@@ -1,0 +1,17 @@
+Clock: {{created_at}}
+<hr/>
+type: {{task_type}}
+<hr/>
+
+{{view Ember.TextArea valueBinding="text"}}
+
+{{#if agreedable}}
+	<a {{action confirmTask}}>Agree</a>
+{{/if}}
+<hr/>
+
+{{#if completable}}
+	Completed? 
+	<a {{action completeTask}}>Yes</a>
+	<a {{action rejectTask}}>No</a>
+{{/if}}
