@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.8'
 gem 'sqlite3'
 
 
@@ -16,6 +16,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :production do
+end
+
 gem 'jquery-rails'
 gem 'ember-rails'
 
@@ -29,7 +32,9 @@ gem 'ember-rails'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
+gem 'passenger'
+
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
