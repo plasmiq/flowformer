@@ -1,0 +1,66 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+.container {
+	width: 100%;
+	position:fixed;
+	text-align:center;
+	display: block;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 800;
+}
+#top {
+	height: 50%;
+	background-color: #009d9b;
+	top: 0px;
+	cursor: pointer;
+	font-size: 60pt;
+}
+#top:hover {
+	background-color: #00ba34;
+}
+#top .vertical {
+	margin-top: -86px;				
+}
+#middle {
+	top: 50%;
+	height: 90px;
+	background-color: black;
+	z-index: 100;
+	margin-top: -45px;
+	line-height: 90px;
+	font-size: 24pt;
+}
+#middle i {
+	font-size: 15pt;
+	margin-left: 10px;
+	position: relative;
+	top: -3px;
+}
+#bottom {
+	height: 50%;
+	background-color: #ff2f53;
+	bottom: 0px;
+	cursor: pointer;
+	font-size: 60pt;
+}
+#bottom:hover {
+	background-color: #ff0833;
+}
+#bottom .vertical {
+	margin-top: -45px;
+}
+.vertical {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+}
+.vertical img {
+	vertical-align:middle;
+}
+.vertical span {
+	position: relative;
+	top: 7px;
+}
