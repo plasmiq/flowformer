@@ -1,0 +1,182 @@
+#clock {
+	height: 30px;
+	font-size: 14pt;
+	color: white;
+	background-color: #009d9b;
+	font-family: 'Open Sans';
+	font-weight: 800;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+}
+
+#shadow {
+	height: 6px; 
+	width: 100%;
+	background-color: black;
+	position: absolute;
+	bottom: 0px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+	filter: alpha(opacity=40);
+	-moz-opacity: 0.4;
+	-khtml-opacity: 0.4;
+	opacity: 0.4;
+}
+
+.task {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	text-align: center;
+}
+
+.task.dodo {
+	background-color: #009d9b;
+}
+
+.task.dontdo {
+	background-color: #ff2f53;
+}
+
+#task {
+	position: relative;
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 120px;
+}
+
+.quote {
+	font-size: 120pt;
+	font-family: Georgia;
+	font-weight: bold;
+	color: white;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+	filter: alpha(opacity=40);
+	-moz-opacity: 0.4;
+	-khtml-opacity: 0.4;
+	opacity: 0.4;
+	position: absolute;
+	top: -30px;
+	width: 100px;
+	left: -90px;
+}
+
+.task textarea {
+	display: block;
+	font-family: "Open Sans";
+	font-weight: 800;
+	background-color: transparent;
+	border: 0px;
+	color: white;
+	resize: none; 
+	overflow: hidden;
+	outline: none;
+	font-size: 50pt;
+	line-height: 1.25em;
+	height: 2.6em;
+	width: 100%;
+}
+
+
+:-moz-placeholder {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+	filter: alpha(opacity=20);
+	-moz-opacity: 0.2;
+	-khtml-opacity: 0.2;
+	opacity: 0.2;
+}
+
+.me {
+	font-size: 36pt;
+	font-family: "Open Sans";
+	font-weight: 600;
+	font-style: italic;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+	filter: alpha(opacity=40);
+	-moz-opacity: 0.4;
+	-khtml-opacity: 0.4;
+	opacity: 0.4;
+	color: white;
+	text-align: left;
+}
+
+#compleated {
+	height: 155px;
+	width: 500px;
+	position: absolute;
+	top: 30px;
+	right: 50px;
+}
+#compleated p {
+	float: left;
+}
+
+.dodo .yes {
+	background-image: url("/assets/mustdo_yes_success_button.png");
+	height: 155px;
+	width: 156px;
+	display: inline-block;
+}
+.dodo .no {
+	background-image: url("/assets/mustdo_no_fail_button.png");
+	width: 104px;
+	height: 105px;
+	display: inline-block;
+}
+
+.dontdo .yes {
+	background-image: url("/assets/dontdo_yes_fail_button.png");
+	width: 104px;
+	height: 105px;
+	display: inline-block;
+}
+.dontdo .no {
+	background-image: url("/assets/dontdo_no_success_button.png");
+	height: 155px;
+	width: 156px;
+	display: inline-block;
+}
+
+.agree_button {
+	clear: both;
+	background-image: url("/assets/agree_button.png");
+	width: 170px;
+	height: 61px;
+	display: block;
+	margin: 0 auto;
+}
+
+#footer {
+	position: fixed;
+	bottom: 0px;
+	background-color: black;
+	height: 90px;
+	width: 100%;
+	color: white;
+	line-height: 90px;
+	font-family: "Open Sans";
+}
+
+#footer div {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+	filter: alpha(opacity=40);
+	-moz-opacity: 0.4;
+	-khtml-opacity: 0.4;
+	opacity: 0.4;
+	width: 70%;
+	margin: 0 auto;
+	text-align: left;
+}
+
+#footer strong {
+	font-size: 24pt;
+	font-weight: 800;
+}
+
+#footer i {
+	font-size: 16pt;
+	font-weight: 600;
+	position: relative;
+	top: -3px;
+	margin-left: 20px;
+}

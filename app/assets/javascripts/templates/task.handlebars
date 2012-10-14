@@ -1,17 +1,35 @@
-Clock: {{created_at}}
-<hr/>
-type: {{task_type}}
-<hr/>
+<div id="clock">
+	Clock: {{created_at}}
+	<div id="shadow"></div>
+</div>
 
-{{view Ember.TextArea valueBinding="text"}}
+<div id="task">
+	<span class="quote">&quot;</span>
+
+	{{view Ember.TextArea valueBinding="text" placeholder="Enter a single thing you must do within 24 hours." tabindex="1" disabledBinding="completable" spellcheck="false"}}
+
+	<div class="me">-me</div>
+</div>
 
 {{#if agreedable}}
-	<a {{action confirmTask}}>Agree</a>
+	<a {{action confirmTask}} class="agree_button"></a>
 {{/if}}
-<hr/>
+
 
 {{#if completable}}
-	Completed? 
-	<a {{action completeTask}}>Yes</a>
-	<a {{action rejectTask}}>No</a>
+	<div id="compleated">
+		<p>
+			You had 24 hrs.
+			Did you do it?
+		</p>
+		<a {{action completeTask}} class="yes"></a>
+		<a {{action rejectTask}} class="no"></a>
+	</div>
 {{/if}}
+
+<div id="footer">
+	<div>
+		<strong>FLOWFORMER&trade;</strong>
+		<i>What one thing do you want help with today?</i>
+	</div>
+</div>
