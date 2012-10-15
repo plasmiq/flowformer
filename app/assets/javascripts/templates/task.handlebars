@@ -1,5 +1,8 @@
-<div id="clock">
-	Clock: {{created_at}}
+<div id="header">
+	<div id="clock">
+		<div id="timer">&nbsp;
+		{{created_at}}</div>
+	</div>
 	<div id="shadow"></div>
 </div>
 
@@ -19,7 +22,7 @@
 {{#if completable}}
 	<div id="compleated">
 		<p>
-			You had 24 hrs.
+			You had 24 hrs.<br/>
 			Did you do it?
 		</p>
 		<a {{action completeTask}} class="yes"></a>

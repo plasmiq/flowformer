@@ -1,4 +1,4 @@
-FF.TaskView = Ember.View.extend
+@FF.TaskView = Ember.View.extend
 	templateName: "task"
 	classNames: ["task"]
 	classNameBindings: ['background']

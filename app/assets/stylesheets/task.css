@@ -1,8 +1,8 @@
-#clock {
-	height: 30px;
-	font-size: 14pt;
-	color: white;
-	background-color: #009d9b;
+#header {
+	height: 1.5em;
+	line-height: 1.5em;
+	font-size: 1.1em;
+	color: red;
 	font-family: 'Open Sans';
 	font-weight: 800;
 	position: absolute;
@@ -10,12 +10,31 @@
 	width: 100%;
 }
 
+#clock {
+	background-color: white;
+	height: 100%;
+}
+
+#timer {
+	padding-right: 20px;
+	color: white;
+	float: left;
+}
+
+.dontdo #timer {
+	background-color: #009d9b;
+}
+
+.dodo #timer {
+	background-color: #ff2f53;	
+}
+
 #shadow {
-	height: 6px; 
+	height: 0.25em; 
 	width: 100%;
 	background-color: black;
 	position: absolute;
-	bottom: 0px;
+	top: 1.5em;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
 	filter: alpha(opacity=40);
 	-moz-opacity: 0.4;
@@ -42,7 +61,7 @@
 	position: relative;
 	width: 70%;
 	margin: 0 auto;
-	margin-top: 120px;
+	margin-top: 170px;
 }
 
 .quote {
@@ -102,13 +121,18 @@
 
 #compleated {
 	height: 155px;
-	width: 500px;
+	width: auto;
 	position: absolute;
-	top: 30px;
+	top: 20px;
 	right: 50px;
 }
 #compleated p {
 	float: left;
+	color: white;
+	font-size: 24pt;
+	line-height: 1.15em;
+	text-align: right;
+	margin: 40px 20px 0 0;
 }
 
 .dodo .yes {
@@ -122,12 +146,17 @@
 	width: 104px;
 	height: 105px;
 	display: inline-block;
+	position: relative;
+	top: -23px;
+	left: -20px;
 }
 
 .dontdo .yes {
 	background-image: url("/assets/dontdo_yes_fail_button.png");
 	width: 104px;
 	height: 105px;
+	position: relative;
+	top: -23px;
 	display: inline-block;
 }
 .dontdo .no {
@@ -135,6 +164,8 @@
 	height: 155px;
 	width: 156px;
 	display: inline-block;
+	position: relative;
+	left: -20px;
 }
 
 .agree_button {
@@ -143,8 +174,18 @@
 	width: 170px;
 	height: 61px;
 	display: block;
-	margin: 0 auto;
+	margin: 20px auto 0;
 }
+
+.welldone_button {
+	clear: both;
+	background-image: url("/assets/returnhome_button.png");
+	width: 293px;
+	height: 61px;
+	display: block;
+	margin: 20px auto 0;
+}
+
 
 #footer {
 	position: fixed;
@@ -170,7 +211,7 @@
 
 #footer strong {
 	font-size: 24pt;
-	font-weight: 800;
+	font-weigh
 }
 
 #footer i {

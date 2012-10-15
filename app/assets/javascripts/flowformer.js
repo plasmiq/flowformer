@@ -7,13 +7,4 @@
 //= require_tree ./templates
 //= require_tree ./routes
 //= require_self
-
 FF.initialize();
-
-// Initialize states
-
-//if( FF.Task && FF.Task.completed === null ) {
-//  FF.get('router').transitionTo("root.task")
-//} else if ( FF.Task && FF.Task.completed != null ) {
-//  FF.get('router').transitionTo("root.completed")	
-//}
