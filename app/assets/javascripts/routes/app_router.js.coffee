@@ -34,22 +34,15 @@ FF.Router = Ember.Router.extend
       completeTask: (router) ->
         @get("task").complete( true )
         router.get("store").commit()
-        router.transitionTo("completed") 
 
       rejectTask: (router) ->
         @get("task").complete( false )
         router.get("store").commit()
-        router.transitionTo("completed") 
 
       confirmTask: (router) ->
         @get("task").start()
         router.get("store").commit()
 
-      connectOutlets: (router) ->
-        router.get("applicationController").connectOutlet("Task")
-      
-
-    completed: Ember.Route.extend
       startAgain: (router) ->
         task = router.get("applicationController").get("content")
         router.get("store").deleteRecord( task )
@@ -57,4 +50,4 @@ FF.Router = Ember.Router.extend
         router.transitionTo('welcome')
 
       connectOutlets: (router) ->
-        router.get("applicationController").connectOutlet("CompletedTask")      
+        router.get("applicationController").connectOutlet("Task")

@@ -12,10 +12,7 @@ Ember.TextArea.reopen({
   },
   keyDown: function (e) {
   	if(e.which == 13) {
-		return false 
-	}
-  },
-  placeholder: function() {
-  	return "test"
-  }.property()
+		  return false 
+    }
+  }
 })

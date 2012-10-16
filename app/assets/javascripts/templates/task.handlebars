@@ -1,7 +1,6 @@
 <div id="header">
 	<div id="clock">
-		<div id="timer">&nbsp;
-		{{created_at}}</div>
+		<div id="timer">{{clock}}</div>
 	</div>
 	<div id="shadow"></div>
 </div>
@@ -9,7 +8,7 @@
 <div id="task">
 	<span class="quote">&quot;</span>
 
-	{{view Ember.TextArea valueBinding="text" placeholder="Enter a single thing you must do within 24 hours." tabindex="1" disabledBinding="completable" spellcheck="false"}}
+	{{view Ember.TextArea valueBinding="text" placeholderBinding="placeholder" tabindex="1" disabledBinding="completed" spellcheck="false"}}
 
 	<div class="me">-me</div>
 </div>
@@ -17,7 +16,6 @@
 {{#if agreedable}}
 	<a {{action confirmTask}} class="agree_button"></a>
 {{/if}}
-
 
 {{#if completable}}
 	<div id="compleated">
@@ -28,6 +26,10 @@
 		<a {{action completeTask}} class="yes"></a>
 		<a {{action rejectTask}} class="no"></a>
 	</div>
+{{/if}}
+
+{{#if completed}}
+	<a {{action startAgain}} class="welldone_button"></a>
 {{/if}}
 
 <div id="footer">
