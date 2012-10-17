@@ -35,11 +35,7 @@ FF = Ember.Application.create({
 			// go to proper state
 			task = records[0];
 			router.get("applicationController").set("content",task)
-			if(task.get("completed") === "true" || task.get("completed") === "false" ) {
-				router.transitionTo("completed")
-			} else {
-				router.transitionTo("task")
-			}
+			router.transitionTo("task")
 		}
   }
 });

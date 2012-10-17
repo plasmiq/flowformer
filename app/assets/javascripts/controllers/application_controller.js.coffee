@@ -5,7 +5,7 @@ FF.ApplicationController = Ember.ObjectController.extend
 	).property("text","created_at")
 
 	completable: (->
-		( @get("created_at") && !(@get("completed") == "true") )
+		( @get("created_at") && !( (["true", "false"]).indexOf( @get("completed") ) >= 0 ) )
 	).property("created_at","completed")
 
 	clock: (->
