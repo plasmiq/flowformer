@@ -1,0 +1,56 @@
+/* GENERAL */
+#footer {
+	font-size: 24pt;
+	height: 3em;
+	line-height: 3em;
+	background-color: black;
+	color: white;
+	width: 100%;
+}
+
+#footer strong {
+	font-weight: 800;
+}
+
+#footer i {
+	font-size: 0.666666667em;
+	margin-left: 10px;
+	position: relative;
+	top: -3px;
+}
+
+/* WELCOME */
+
+.welcome #footer {
+	position: absolute;
+	top: 50%;
+	z-index: 100;
+	margin-top: -1.5em;
+}
+
+.welcome #footer div {
+	text-align: center;
+}
+
+/* TASK */
+
+.task #footer {
+	position: fixed;
+	bottom: 0px;
+	background-color: black;
+	height: 90px;
+	width: 100%;
+	color: white;
+	line-height: 90px;
+}
+
+.task #footer div {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+	filter: alpha(opacity=40);
+	-moz-opacity: 0.4;
+	-khtml-opacity: 0.4;
+	opacity: 0.4;
+	width: 70%;
+	margin: 0 auto;
+	text-align: left;
+}

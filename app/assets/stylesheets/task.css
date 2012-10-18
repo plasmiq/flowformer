@@ -185,39 +185,3 @@
 	display: block;
 	margin: 20px auto 0;
 }
-
-
-#footer {
-	position: fixed;
-	bottom: 0px;
-	background-color: black;
-	height: 90px;
-	width: 100%;
-	color: white;
-	line-height: 90px;
-	font-family: "Open Sans";
-}
-
-#footer div {
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
-	filter: alpha(opacity=40);
-	-moz-opacity: 0.4;
-	-khtml-opacity: 0.4;
-	opacity: 0.4;
-	width: 70%;
-	margin: 0 auto;
-	text-align: left;
-}
-
-#footer strong {
-	font-size: 24pt;
-	font-weight: 800;
-}
-
-#footer i {
-	font-size: 16pt;
-	font-weight: 600;
-	position: relative;
-	top: -3px;
-	margin-left: 20px;
-}

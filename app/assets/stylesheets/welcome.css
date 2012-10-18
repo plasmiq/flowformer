@@ -24,21 +24,6 @@ body {
 #top .vertical {
 	margin-top: -86px;				
 }
-#middle {
-	top: 50%;
-	height: 90px;
-	background-color: black;
-	z-index: 100;
-	margin-top: -45px;
-	line-height: 90px;
-	font-size: 24pt;
-}
-#middle i {
-	font-size: 15pt;
-	margin-left: 10px;
-	position: relative;
-	top: -3px;
-}
 #bottom {
 	height: 50%;
 	background-color: #ff2f53;
