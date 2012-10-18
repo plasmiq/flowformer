@@ -16,9 +16,14 @@
 }
 
 #timer {
-	padding-right: 20px;
 	color: white;
+	text-align: left;
 	float: left;
+}
+
+#timer span {
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .dontdo #timer {
@@ -175,6 +180,21 @@
 	height: 61px;
 	display: block;
 	margin: 20px auto 0;
+}
+
+/* completed */
+
+.completed #timer {
+	width: 100%;
+}
+
+.completed textarea {
+	font-size: 6em;
+	height: 1.5em;
+}
+
+.dodo.completed_true textarea, .dontdo.completed_false textarea {
+	font-size: 7em;
 }
 
 .welldone_button {
