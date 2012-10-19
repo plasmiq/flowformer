@@ -96,27 +96,27 @@
 
 
 ::-webkit-input-placeholder {
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
-	filter: alpha(opacity=10);
-	-moz-opacity: 0.1;
-	-khtml-opacity: 0.1;
-	opacity: 0.1;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=15)";
+	filter: alpha(opacity=15);
+	-moz-opacity: 0.15;
+	-khtml-opacity: 0.15;
+	opacity: 0.15;
 }
 
 :-ms-input-placeholder {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
-	filter: alpha(opacity=10);
-	-moz-opacity: 0.1;
-	-khtml-opacity: 0.1;
-	opacity: 0.1;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=15)";
+	filter: alpha(opacity=15);
+	-moz-opacity: 0.15;
+	-khtml-opacity: 0.15;
+	opacity: 0.15;
 }
 
 :-moz-placeholder {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
-	filter: alpha(opacity=10);
-	-moz-opacity: 0.1;
-	-khtml-opacity: 0.1;
-	opacity: 0.1;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=15)";
+	filter: alpha(opacity=15);
+	-moz-opacity: 0.15;
+	-khtml-opacity: 0.15;
+	opacity: 0.15;
 }
 
 .me {
@@ -170,16 +170,18 @@
 	width: 104px;
 	height: 105px;
 	position: relative;
-	top: -23px;
+	left: -20px;
+	top: 23px;
 	display: inline-block;
+	z-index: 5;
+
 }
 .dontdo .no {
 	background-image: url("/assets/dontdo_no_success_button.png");
 	height: 155px;
 	width: 156px;
 	display: inline-block;
-	position: relative;
-	left: -20px;
+	float: left;	
 }
 
 .agree_button {
