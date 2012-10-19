@@ -9,8 +9,11 @@ FF.ApplicationController = Ember.ObjectController.extend
 	).property("created_at","completed")
 
 	clock: (->
-		if(@get("completed")) then "MUST DO COMPELTE!" else @get("created_at")
-	).property("completed")
+		text = "24"
+		text = "MUST DO COMPELTE!" if @get("completed") == "true"
+		text = "DONT DO COMPELTE!" if @get("completed") == "false"
+		text
+	).property("completed","created_at")
 
 	placeholder: (->
 		if(@get("task_type") == "dodo") 
