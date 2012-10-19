@@ -4,16 +4,21 @@ FF.ApplicationController = Ember.ObjectController.extend
 		( @get("text").length > 3 ) && ( ! @get("created_at") )
 	).property("text","created_at")
 
+	is100: (->
+		@get("completable") || @get("completed")
+	).property("completed","completable")
+
 	completable: (->
 		( @get("created_at") && !( (["true", "false"]).indexOf( @get("completed") ) >= 0 ) )
 	).property("created_at","completed")
 
 	clock: (->
 		text = "24"
-		text = "MUST DO COMPELTE!" if @get("completed") == "true"
-		text = "DONT DO COMPELTE!" if @get("completed") == "false"
+		if @get("is100")
+			text = "MUST DO COMPELTE!" if @get("task_type") == "dodo"
+			text = "DONT DO COMPELTE!" if @get("task_type") == "dontdo"
 		text
-	).property("completed","created_at")
+	).property("completable")
 
 	placeholder: (->
 		if(@get("task_type") == "dodo") 
