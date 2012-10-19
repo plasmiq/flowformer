@@ -19,6 +19,28 @@
 	top: -3px;
 }
 
+#footer .trademark {
+	font-size: 0.4em;
+	position: relative;
+	bottom: 1.05em;
+	font-weight: normal;
+	font-style: italic;
+}
+
+#footer #plasmiq_logo {
+	display: none;
+}
+
+#footer.with_logo #plasmiq_logo {
+	display: inline-block;
+	background-image: url("/assets/powered_by_plasmiq.png");
+	width: 169px;
+	height: 45px;
+	float: right;
+	position: relative;
+	top: 0.75em;
+}
+
 /* WELCOME */
 
 .welcome #footer {
@@ -45,12 +67,15 @@
 }
 
 .task #footer div {
+	width: 80%;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.task #footer .text {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
 	filter: alpha(opacity=40);
 	-moz-opacity: 0.4;
 	-khtml-opacity: 0.4;
 	opacity: 0.4;
-	width: 70%;
-	margin: 0 auto;
-	text-align: left;
 }

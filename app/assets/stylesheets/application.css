@@ -12,7 +12,18 @@
  *= require_tree .
 */
 a {
-	color: blue;
-	text-decoration: underline;
+	color: white;
+	text-decoration: none;
 	cursor: pointer;
+	outline: 0;
+}
+
+a:hover, a:active, a:focus {
+    text-decoration: none;
+}
+
+input::-moz-focus-inner { border: 0; }
+
+object, embed { 
+  outline: 0;
 }
