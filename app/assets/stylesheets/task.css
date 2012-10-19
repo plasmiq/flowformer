@@ -82,7 +82,7 @@
 	display: block;
 	font-family: "Open Sans";
 	font-weight: 800;
-	background-color: transparent;
+	background-color: inherit;
 	border: 0px;
 	color: white;
 	resize: none; 
