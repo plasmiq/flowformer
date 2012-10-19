@@ -70,19 +70,12 @@
 }
 
 .quote {
-	font-size: 120pt;
-	font-family: Georgia;
-	font-weight: bold;
-	color: white;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
-	filter: alpha(opacity=40);
-	-moz-opacity: 0.4;
-	-khtml-opacity: 0.4;
-	opacity: 0.4;
+	background-image: url("/assets/quotemark.png");
+	height: 42px;
+	width: 53px;
 	position: absolute;
-	top: -30px;
-	width: 100px;
-	left: -90px;
+	top: 0px;
+	left: -65px;
 }
 
 .task textarea {
@@ -102,12 +95,28 @@
 }
 
 
+::-webkit-input-placeholder {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+	filter: alpha(opacity=10);
+	-moz-opacity: 0.1;
+	-khtml-opacity: 0.1;
+	opacity: 0.1;
+}
+
+:-ms-input-placeholder {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+	filter: alpha(opacity=10);
+	-moz-opacity: 0.1;
+	-khtml-opacity: 0.1;
+	opacity: 0.1;
+}
+
 :-moz-placeholder {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
-	filter: alpha(opacity=20);
-	-moz-opacity: 0.2;
-	-khtml-opacity: 0.2;
-	opacity: 0.2;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+	filter: alpha(opacity=10);
+	-moz-opacity: 0.1;
+	-khtml-opacity: 0.1;
+	opacity: 0.1;
 }
 
 .me {
