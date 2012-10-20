@@ -103,6 +103,7 @@
 	-moz-opacity: 0.15;
 	-khtml-opacity: 0.15;
 	opacity: 0.15;
+	color: white;
 }
 
 :-ms-input-placeholder {
@@ -181,7 +182,7 @@
 	top: 23px;
 	display: inline-block;
 	z-index: 5;
-
+	float: right;
 }
 .dontdo .no {
 	background-image: url("/assets/dontdo_no_success_button.png");
