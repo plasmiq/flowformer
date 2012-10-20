@@ -25,8 +25,12 @@
 	scaleFontSize: (->
 		fontsize = 16
 		preferredHeight = 768;  
+		prefferedWidth = 1386;
 		displayHeight = $(window).height();
-		percentage = displayHeight / preferredHeight;
+		displayWidth  = $(window).width();
+		percentageHeight = displayHeight / preferredHeight;
+		percentageWidth  = displayWidth / prefferedWidth;
+		percentage = Math.min(percentageHeight,percentageWidth);
 		newFontSize = Math.floor(fontsize * percentage) - 1;
 		$("body").css("font-size", newFontSize);
-	).observes("controller.windowController.height")
+	).observes("controller.windowController.height","controller.windowController.width")
