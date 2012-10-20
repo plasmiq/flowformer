@@ -1,4 +1,7 @@
 FF.ApplicationController = Ember.ObjectController.extend
+	isConfirmed: (->
+		@get("completable") || @get("completed")
+	).property("agreedable","completable")
 
 	agreedable: (->
 		( @get("text").length > 3 ) && ( ! @get("created_at") )
