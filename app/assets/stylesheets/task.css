@@ -231,10 +231,10 @@
 	height: 1.3em; /* dont ask me why thats works.. */
 }
 
-.dodo.completed_true textarea, dontdo.completed_false textarea {
+.dodo.completed_true textarea, .dontdo.completed_false textarea {
 	font-size: 10em;
 }
 
-.dodo.completed_false textarea, dontdo.completed_do textarea {
+.dodo.completed_false textarea, .dontdo.completed_true textarea {
 	font-size: 9em;
 }
