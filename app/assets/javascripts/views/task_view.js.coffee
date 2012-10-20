@@ -7,6 +7,13 @@
 		"is100" if @get("controller.is100")
 	).property("controller.is100")
 
+	progress: (->
+		hoursLeft = @get("controller.hoursLeft")
+		percentage = (24 - hoursLeft) / 24  * 100
+		if( percentage > 10 && percentage <=  100 )
+			"width: " + percentage + "%"
+	).property("controller.hoursLeft")
+
 	completed: (->
 		"completed_" + @get("controller.completed")
 	).property("controller.completed")
