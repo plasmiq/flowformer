@@ -226,7 +226,7 @@
 	width: 100%;
 }
 
-.completed textarea {
+.completed_true textarea, .completed_false textarea {
 	line-height: 1em;
 	height: 1.3em; /* dont ask me why thats works.. */
 }

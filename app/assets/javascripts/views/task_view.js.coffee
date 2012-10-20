@@ -1,20 +1,15 @@
 @FF.TaskView = Ember.View.extend
 	templateName: "task"
 	classNames: ["task"]
-	classNameBindings: ['background',"completed","is100"]
+	classNameBindings: ["is100","completed",'controller.task_type']
 
 	is100: (->
 		"is100" if @get("controller.is100")
 	).property("controller.is100")
 
 	completed: (->
-		completed = @get("controller.completed")
-		return "completed completed_" + completed if completed
+		"completed_" + @get("controller.completed")
 	).property("controller.completed")
-
-	background: (->
-		return @get("controller.task_type")
-	).property()
 
 	didInsertElement: ->
 		@repositionTask()
@@ -23,7 +18,6 @@
 		task = $("#task")
 		height = $(window).height() / 2
 		height -= task.height() * 0.66
-		#height -= 30 #half of button height
 		
 		task.css "margin-top", height+"px"
 	).observes("controller.windowController.height")
