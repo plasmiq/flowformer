@@ -184,13 +184,23 @@
 	float: left;	
 }
 
-.agree_button {
+/* buttons */
+
+.button {
 	clear: both;
-	background-image: url("/assets/agree_button.png");
-	width: 170px;
 	height: 61px;
 	display: block;
-	margin: 20px auto 0;
+	margin: 0 auto;
+}
+
+.agree_button {
+	background-image: url("/assets/agree_button.png");
+	width: 170px;
+}
+
+.welldone_button {
+	background-image: url("/assets/returnhome_button.png");
+	width: 293px;
 }
 
 /* completed */
@@ -206,13 +216,4 @@
 
 .dodo.completed_true textarea, .dontdo.completed_false textarea {
 	font-size: 7em;
-}
-
-.welldone_button {
-	clear: both;
-	background-image: url("/assets/returnhome_button.png");
-	width: 293px;
-	height: 61px;
-	display: block;
-	margin: 20px auto 0;
 }

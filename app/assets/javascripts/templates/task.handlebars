@@ -14,7 +14,11 @@
 </div>
 
 {{#if agreedable}}
-	<a {{action confirmTask}} class="agree_button"></a>
+	<a {{action confirmTask}} class="agree_button button"></a>
+{{/if}}
+
+{{#if completed}}
+	<a {{action startAgain}} class="welldone_button button"></a>
 {{/if}}
 
 {{#if completable}}
@@ -26,10 +30,6 @@
 		<a {{action completeTask}} class="yes"></a>
 		<a {{action rejectTask}} class="no"></a>
 	</div>
-{{/if}}
-
-{{#if completed}}
-	<a {{action startAgain}} class="welldone_button"></a>
 {{/if}}
 
 {{view FF.FooterView class="with_logo" id="footer"}}

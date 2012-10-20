@@ -30,6 +30,7 @@ FF.Router = Ember.Router.extend
 
       enter: (router) ->
         @set "task", router.get("applicationController").get("content")
+        router.get("applicationController").connectControllers("window")
 
       completeTask: (router) ->
         @get("task").complete( true )
