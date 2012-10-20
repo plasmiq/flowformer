@@ -1,7 +1,7 @@
 #header {
 	height: 1.5em;
 	line-height: 1.5em;
-	font-size: 1.1em;
+	font-size: 1.2em;
 	color: red;
 	font-family: 'Open Sans';
 	font-weight: 800;
@@ -35,7 +35,7 @@
 }
 
 #shadow {
-	height: 0.25em; 
+	height: 0.3em; 
 	width: 100%;
 	background-color: black;
 	position: absolute;
@@ -46,6 +46,8 @@
 	-khtml-opacity: 0.4;
 	opacity: 0.4;
 }
+
+/* task */
 
 .task {
 	height: 100%;
@@ -88,7 +90,7 @@
 	resize: none; 
 	overflow: hidden;
 	outline: none;
-	font-size: 50pt;
+	font-size: 5em;
 	line-height: 1.25em;
 	height: 2.6em;
 	width: 100%;
@@ -120,7 +122,8 @@
 }
 
 .me {
-	font-size: 36pt;
+	font-size: 2.7em;
+	top: 5em;
 	font-family: "Open Sans";
 	font-weight: 600;
 	font-style: italic;
@@ -131,7 +134,10 @@
 	opacity: 0.4;
 	color: white;
 	text-align: left;
+	position: absolute;
 }
+
+/* compelted widget */
 
 #compleated {
 	height: 155px;
@@ -140,6 +146,7 @@
 	top: 20px;
 	right: 50px;
 }
+
 #compleated p {
 	float: left;
 	color: white;
@@ -186,6 +193,14 @@
 
 /* buttons */
 
+.buttons {
+	position: absolute;
+	top: 6em;
+	font-size: 3em;
+	width: 100%;
+	text-align: center;
+}
+
 .button {
 	clear: both;
 	height: 61px;
@@ -205,15 +220,19 @@
 
 /* completed */
 
-.completed #timer {
+.is100 #timer {
 	width: 100%;
 }
 
 .completed textarea {
-	font-size: 6em;
-	height: 1.5em;
+	line-height: 1em;
+	height: 1.3em; /* dont ask me why thats works.. */
 }
 
-.dodo.completed_true textarea, .dontdo.completed_false textarea {
-	font-size: 7em;
+.dodo.completed_true textarea, dontdo.completed_false textarea {
+	font-size: 10em;
+}
+
+.dodo.completed_false textarea, dontdo.completed_do textarea {
+	font-size: 9em;
 }

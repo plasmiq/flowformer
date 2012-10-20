@@ -10,16 +10,18 @@
 
 	{{view Ember.TextArea valueBinding="text" placeholderBinding="placeholder" tabindex="1" disabledBinding="completed" spellcheck="false"}}
 
-	<div class="me">-me</div>
+	<div class="me">- me</div>
+
+	<div class="buttons">
+		{{#if agreedable}}
+			<a {{action confirmTask}} class="agree_button button"></a>
+		{{/if}}
+
+		{{#if completed}}
+			<a {{action startAgain}} class="welldone_button button"></a>
+		{{/if}}
+	</div>
 </div>
-
-{{#if agreedable}}
-	<a {{action confirmTask}} class="agree_button button"></a>
-{{/if}}
-
-{{#if completed}}
-	<a {{action startAgain}} class="welldone_button button"></a>
-{{/if}}
 
 {{#if completable}}
 	<div id="compleated">

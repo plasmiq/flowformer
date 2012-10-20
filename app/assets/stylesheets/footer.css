@@ -60,10 +60,8 @@
 	position: fixed;
 	bottom: 0px;
 	background-color: black;
-	height: 90px;
 	width: 100%;
 	color: white;
-	line-height: 90px;
 }
 
 .task #footer div {
