@@ -19,6 +19,7 @@
 	color: white;
 	text-align: left;
 	float: left;
+	height: 100%;
 }
 
 #timer span {
