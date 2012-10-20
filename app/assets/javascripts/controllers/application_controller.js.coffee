@@ -18,8 +18,8 @@ FF.ApplicationController = Ember.ObjectController.extend
 	clock: (->
 		text = "24"
 		if @get("is100")
-			text = "MUST DO COMPELTE!" if @get("task_type") == "dodo"
-			text = "DONT DO COMPELTE!" if @get("task_type") == "dontdo"
+			text = "MUST DO COMPLETE!" if @get("task_type") == "dodo"
+			text = "DONT DO COMPLETE!" if @get("task_type") == "dontdo"
 		text
 	).property("completable")
 
