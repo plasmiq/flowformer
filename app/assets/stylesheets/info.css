@@ -1,0 +1,44 @@
+.info {
+	font-weight: normal;
+	font-size: 15px;
+	color: #303030;
+	padding-top: 10px;
+}
+
+.info em {
+	font-weight: 700;
+}
+
+.info strong {
+	font-weight: 700;	
+}
+
+.info .left {
+	float: left;
+	width: 245px;
+	margin-left: 10px;
+}
+
+.info .left p {
+	margin-top: 20px;
+}
+
+.info .left #twitter {
+	margin-left: 20px;
+}
+
+.info #flowformer {
+	height: 215px;
+	width: 215px;
+	background: url("flowformer_avatar.png");
+}
+
+.info .right {
+	width: 430px;
+	float: right;
+	margin-right: 10px;
+}
+
+.info .right p {
+	margin-top: 0px;
+}
