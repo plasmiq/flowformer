@@ -33,7 +33,7 @@ gem "fancybox-rails", :git => 'https://github.com/sverigemeny/fancybox-rails'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
+gem 'rvm-capistrano'
 gem 'passenger'
 
 
