@@ -20,4 +20,11 @@ FF.Task = DS.Model.extend
 		@set("completed",completed)
 
 	start: ->
-		@set("created_at", new Date() )   
+		@set("created_at", new Date() )
+
+	msgCompletable: (->
+		if @get("task_type") == "dodo"
+			"succeed"
+		else
+			"fail"
+	).property()
