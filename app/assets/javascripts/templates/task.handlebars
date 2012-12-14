@@ -25,10 +25,12 @@
 
 {{#if completable}}
 	<div id="compleated">
-		<p>
-			You had 24 hrs.<br/>
-			Did you {{msgCompletable}}?
-		</p>
+		<div class="cen">
+			<p>
+				You had 24 hrs.<br/>
+				Did you {{msgCompletable}}?
+			</p>
+		</div>
 		<a {{action completeTask}} class="yes"></a>
 		<a {{action rejectTask}} class="no"></a>
 	</div>

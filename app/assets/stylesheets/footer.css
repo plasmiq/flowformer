@@ -1,6 +1,6 @@
 /* GENERAL */
 #footer {
-	font-size: 24pt;
+	font-size: 1em;
 	height: 3em;
 	line-height: 3em;
 	background-color: black;
@@ -66,8 +66,7 @@
 }
 
 .task #footer div {
-	width: 80%;
-	margin: 0 auto;
+	margin: 0 1em;
 	text-align: left;
 }
 

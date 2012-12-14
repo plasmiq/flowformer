@@ -1,0 +1,73 @@
+@media all and (min-width: 239px)   {
+  body {
+    font-size: 10pt;
+  }
+  #header {
+  	font-size: 1em;
+  }
+  #task {
+  	margin-top: 6em;
+  }
+}
+
+@media all and (min-width: 319px)   {
+  body {
+    font-size: 14pt;
+  }
+  #header {
+  	font-size: 1em;
+  }
+  #task {
+  	margin-top: 8em;
+  }
+}
+
+
+@media all and (min-width: 639px)   {
+  body {
+    font-size: 16pt;
+  }
+  #header {
+  	font-size: 0.8em;
+  }
+  .me {
+  	margin: 0.2em 0;
+  }
+}
+
+@media all and (min-width: 799px)   {
+  body {
+    font-size: 21pt;
+  }
+  #header {
+  	font-size: 0.7em;
+  }
+  #task {
+  	margin-top: 5em;
+  }
+}
+
+@media all and (min-width: 960px)   {
+  body {
+    font-size: 24pt;
+  }
+}
+
+
+@media all and (max-width: 880px) {
+	.infoicon {
+		display: none;
+	}
+}
+
+@media all and (max-width: 479px) {
+	.welcome #footer strong, .welcome #footer span.text span {
+		display: none;
+	}
+}
+
+@media all and (max-width: 799px) { 
+	.task #footer span span.text, .task #footer span i, .task #footer a {
+		display: none !important;
+	}
+}

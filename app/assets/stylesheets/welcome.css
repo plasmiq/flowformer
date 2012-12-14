@@ -5,45 +5,50 @@
 	display: block;
 	color: white;
 	font-weight: 800;
+	font-size: 2.5em;
 }
 #top {
 	height: 50%;
 	background-color: #009d9b;
 	top: 0px;
 	cursor: pointer;
-	font-size: 60pt;
 }
 #top:hover {
 	background-color: #00c841;
 }
 #top .vertical {
-	margin-top: -86px;				
+	margin-top: -1.15em;				
 }
 #bottom {
 	height: 50%;
 	background-color: #ff2f53;
 	bottom: 0px;
 	cursor: pointer;
-	font-size: 60pt;
 }
+
 #bottom:hover {
 	background-color: #ff0833;
 }
 #bottom .vertical {
-	margin-top: -45px;
+	margin-top: -0.5em;
 }
 .vertical {
 	position: absolute;
 	top: 50%;
 	width: 100%;
+	line-height: 1.5em;
+	height: 1.5em;
 }
+
 .vertical img {
-	vertical-align:middle;
+	height: 1.5em;
+	vertical-align: middle;
 }
+
 .vertical span {
-	position: relative;
-	top: 7px;
+	vertical-align: middle;
 }
+
 .infoicon {
 	display: block;
 	width: 38px;
