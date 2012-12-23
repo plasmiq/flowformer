@@ -1,8 +1,7 @@
 FF.Router = Ember.Router.extend
-  location: 'hash',
+  location: 'hash'
 
   root: Ember.Route.extend
-
     welcome: Ember.Route.extend
       route: '/'
 
@@ -45,9 +44,6 @@ FF.Router = Ember.Router.extend
         router.get("store").commit()
 
       startAgain: (router) ->
-        task = router.get("applicationController").get("content")
-        router.get("store").deleteRecord( task )
-        router.get("store").commit()
         router.transitionTo('welcome')
 
       connectOutlets: (router) ->

@@ -23,20 +23,19 @@ FF = Ember.Application.create({
 		var router = FF.get("router");
 		var store = router.get("store");
 		var records = store.findAll(FF.Task).toArray();
-		var task = null;
+		var current_record = false;
+
+		$.each(records, function(index, record) {
+			if(record.get('completed') == null){
+				current_record = record;
+			}
+		});
 
 		
-		if( records.length > 1 ){
-			// clear corrupted state
-			records.forEach( function(record) {
-				store.deleteRecord(record)
-			}) 
-			store.commit()
-		} else if ( records.length === 1) {
+		if( current_record ){
 			// go to proper state
-			task = records[0];
-			router.get("applicationController").set("content",task)
-			router.transitionTo("task")
+			router.get("applicationController").set("content", current_record);
+			router.transitionTo("task");
 		}
   }
 });
