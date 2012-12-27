@@ -8,7 +8,11 @@
 <div id="task">
 	<span class="quote"></span>
 
-	{{view Ember.TextArea valueBinding="text" placeholderBinding="placeholder" tabindex="1" disabledBinding="isConfirmed" spellcheck="false"}}
+	{{#unless completed}}
+		{{view Ember.TextArea valueBinding="text" placeholderBinding="placeholder" tabindex="1" disabledBinding="isConfirmed" spellcheck="false"}}
+	{{else}}
+		{{view Ember.TextArea valueBinding="msgCompleted" disabled="true" spellcheck="false"}}
+	{{/unless}}
 
 	<div class="me">- me</div>
 

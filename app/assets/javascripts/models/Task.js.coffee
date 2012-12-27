@@ -7,22 +7,24 @@ FF.Task = DS.Model.extend
 
 	complete: (completed) ->
 		@set("completed_at", new Date() )
-		new_text = ""
-		if @get("task_type") == "dodo"
-			if(completed)
-				new_text = "Well done!"
-			else
-				new_text = "Next time?"	
-		else
-			if(!completed)
-				new_text = "Well done!"
-			else
-				new_text = "Next time?"
-		@set("text", new_text)
 		@set("completed",completed)
 
 	start: ->
 		@set("created_at", new Date() )
+
+	msgCompleted: (->
+		completed = (@get("completed") == "true")
+		if @get("task_type") == "dodo"
+			if(completed)
+				"Well done!"
+			else
+				"Next time?"	
+		else
+			if(completed)
+				"Well done!"
+			else
+				"Next time?"
+	).property()
 
 	msgCompletable: (->
 		if @get("task_type") == "dodo"
