@@ -6,18 +6,15 @@ FF.Router = Ember.Router.extend
       route: '/'
 
       createDoTask: (router) ->
-        @_createTask(router,"dodo")
+        task = FF.DoTask.createRecord()
+        @_createTask(router,task)
 
       createDontTask: (router) ->
-        @_createTask(router,"dontdo")
+        task = FF.DontTask.createRecord()
+        @_createTask(router,task)
 
-      _createTask: (router,task_type) ->
-        store = router.get("store")
-        
-        task = FF.Task.createRecord 
-          task_type: task_type
-        store.commit();
-
+      _createTask: (router,task) ->
+        router.get("store").commit();
         router.get("applicationController").set("content",task)
         router.transitionTo('task')
         

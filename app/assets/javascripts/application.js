@@ -16,20 +16,12 @@
 FF = Ember.Application.create({
 	ready: function () {
 		this.initialize();
-		var router = FF.get("router");
-		var store = router.get("store");
-		var records = store.findAll(FF.Task).toArray();
-		var current_record = false;
+		var router = FF.get("router")
+			store = router.get("store"),
+			current_record = FF.Task.findActive();
 
-		$.each(records, function(index, record) {
-			if(record.get('completed') == null){
-				current_record = record;
-			}
-		});
-
-		
+		/* Go to proper state */
 		if( current_record ){
-			// go to proper state
 			router.get("applicationController").set("content", current_record);
 			router.transitionTo("task");
 		}
