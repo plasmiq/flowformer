@@ -16,6 +16,8 @@ FF.Router = Ember.Router.extend
       _createTask: (router,task) ->
         router.get("store").commit();
         router.get("applicationController").set("content",task)
+        unless  Em.none( _gaq )
+          _gaq.push(['_trackEvent', 'Task', 'Created', task.get("task_type")]);
         router.transitionTo('task')
         
       connectOutlets: (router) ->
