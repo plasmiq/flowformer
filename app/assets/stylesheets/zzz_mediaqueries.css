@@ -8,6 +8,9 @@
   #task {
   	margin-top: 6em;
   }
+  .ending_text {
+    height: 2em !important;
+  }
 }
 
 @media all and (min-width: 319px)   {
@@ -35,6 +38,9 @@
   }
   .me {
   	margin: 0.2em 0;
+  }
+  .ending_text {
+    height: 1em !important;
   }
 }
 

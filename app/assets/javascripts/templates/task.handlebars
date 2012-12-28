@@ -11,7 +11,7 @@
 	{{#unless completed}}
 		{{view Ember.TextArea valueBinding="text" placeholderBinding="placeholder" tabindex="1" disabledBinding="isConfirmed" spellcheck="false"}}
 	{{else}}
-		{{view Ember.TextArea valueBinding="msgCompleted" disabled="true" spellcheck="false"}}
+		{{view Ember.TextArea valueBinding="msgCompleted" disabled="true" spellcheck="false" class="ending_text"}}
 	{{/unless}}
 
 	<div class="me">- me</div>
