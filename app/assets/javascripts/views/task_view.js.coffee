@@ -11,7 +11,7 @@
         hoursLeft = @get("controller.hoursLeft")
         percentage = (24 - hoursLeft) / 24  * 100
         if( percentage > 10 && percentage <=  100 )
-            "width: " + percentage + "%"
+            "min-width: " + percentage + "%"
     ).property("controller.hoursLeft")
 
     completed: (->
