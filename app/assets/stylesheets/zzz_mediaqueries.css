@@ -30,6 +30,9 @@
   #header {
   	font-size: 0.8em;
   }
+  #compleated {
+    top: 0.9em;
+  }
   .me {
   	margin: 0.2em 0;
   }
@@ -42,6 +45,9 @@
   #header {
   	font-size: 0.7em;
   }
+  #compleated {
+    top: 0.75em;
+  }
   #task {
   	margin-top: 5em;
   }
@@ -51,6 +57,7 @@
   body {
     font-size: 24pt;
   }
+
 }
 
 
