@@ -15,6 +15,9 @@ FF.Task = DS.Model.extend
     start: ->
         @set("created_at", new Date() )
 
+    isStarted: ->
+        !Em.none @get("created_at")
+
     msgCompletable: (->
         if @get("task_type") == "dodo"
             "succeed"

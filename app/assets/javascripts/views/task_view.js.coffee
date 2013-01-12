@@ -4,8 +4,8 @@
     classNameBindings: ["is100","completed",'controller.task_type']
 
     is100: (->
-        "is100" if @get("controller.is100")
-    ).property("controller.is100")
+        "is100" if @get("controller.completable")
+    ).property("controller.completable")
 
     progress: (->
         hoursLeft = @get("controller.hoursLeft")
