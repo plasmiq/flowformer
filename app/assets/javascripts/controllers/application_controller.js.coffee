@@ -2,7 +2,6 @@ FF.ApplicationController = Ember.ObjectController.extend
 	timeLeft: null
 
 	startTicking: ->
-		console.log("tick")
 		current_time = new Date()
 		task_creation_time = @get("created_at")
 		if current_time - task_creation_time >= 1000 * 60 * 60 * 24 # one day
