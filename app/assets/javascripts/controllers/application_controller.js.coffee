@@ -2,13 +2,14 @@ FF.ApplicationController = Ember.ObjectController.extend
 	timeLeft: null
 
 	startTicking: ->
-		current_time = new Date()
-		task_creation_time = @get("created_at")
-		if current_time - task_creation_time >= 1000 * 60 * 60 * 24 # one day
+		current_time = moment()
+		task_creation_time = moment( @get("created_at") )
+		end_of_day_time = moment().endOf("day")		
+
+		if current_time.diff( task_creation_time, "days" ) >= 1
 			@set("timeLeft",  0 ) 
 			return
-
-		end_of_day_time = moment().endOf("day")		
+		
 		diffMs = (end_of_day_time - current_time); # milliseconds between now & end of day
 		
 		@set("timeLeft",  diffMs ) 
