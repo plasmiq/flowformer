@@ -25,6 +25,7 @@
 			<a {{action startAgain}} class="welldone_button button"></a>
 		{{/if}}
 	</div>
+
 </div>
 
 {{#if completable}}
@@ -41,3 +42,5 @@
 {{/if}}
 
 {{view FF.FooterView class="with_logo" id="footer"}}
+
+<a {{action gotoHistory}} class="historyicon"></a>

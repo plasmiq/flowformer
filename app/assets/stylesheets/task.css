@@ -256,3 +256,16 @@
 .dodo.completed_false textarea, .dontdo.completed_true textarea {
 	font-size: 3.5em;
 }
+
+.task .historyicon {
+	width: 38px;
+	height: 38px;
+	background: url("history_task_button.png") 0 0;
+	position: absolute;
+	top: 2em;
+	left: 0.5em;
+}
+
+.task .historyicon:hover {
+	background-position: 38px 0;
+}

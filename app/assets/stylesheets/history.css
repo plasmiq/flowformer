@@ -1,0 +1,25 @@
+.history {
+	background-color: black;
+	height: 100%;
+	width: 100%;
+	position:absolute;
+	color: white;
+}
+.history .welcomeicon {
+	width: 22px;
+	height: 20px;
+	display: block;
+	margin-left: 20px;
+	margin-top: 20px;
+	background: url("home_button.png") 0 0;
+}
+
+.history .welcomeicon:hover {
+	background-position: 22px 0;
+}
+
+.history .month {
+	width: 300px;
+	float: left;
+
+}

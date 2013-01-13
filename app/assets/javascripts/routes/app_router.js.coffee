@@ -13,6 +13,8 @@ FF.Router = Ember.Router.extend
         task = FF.DontTask.createRecord()
         @_createTask(router,task)
 
+      gotoHistory: Ember.Router.transitionTo('history')
+
       _createTask: (router,task) ->
         router.get("store").commit();
         router.get("applicationController").set("content",task)
@@ -27,7 +29,9 @@ FF.Router = Ember.Router.extend
     task: Ember.Route.extend
 
       enter: (router) ->
-        @set "task", router.get("applicationController").get("content")
+        task = FF.Task.findActive()
+        @set "task", task
+        router.get("applicationController").set("content",task)
         router.get("applicationController").startTicking()
 
       completeTask: (router) ->
@@ -45,5 +49,30 @@ FF.Router = Ember.Router.extend
       startAgain: (router) ->
         router.transitionTo('welcome')
 
+      gotoHistory: Ember.Router.transitionTo('history')
+
       connectOutlets: (router) ->
         router.get("applicationController").connectOutlet("Task")
+
+    history: Ember.Route.extend
+
+      gotoWelcome: (router) ->
+        unless FF.Task.findActive
+          router.transitionTo('welcome')
+        else
+          router.transitionTo('task')
+
+      nextMonth: (router) ->
+        router.get("historyController").nextMonth()
+
+      prevMonth: (router) ->
+        router.get("historyController").prevMonth()
+
+      selectTask: (router, context) ->
+        router.get("historyController").selectTask(context)
+
+      reuseTask: (router,context) ->
+        router.get("historyController").reuseTask(context)         
+
+      connectOutlets: (router) ->
+        router.get("applicationController").connectOutlet("history")
