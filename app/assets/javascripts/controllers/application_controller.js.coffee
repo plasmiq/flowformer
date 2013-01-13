@@ -1,12 +1,18 @@
 FF.ApplicationController = Ember.ObjectController.extend
 	timeLeft: null
 
+	isSameDay: (day1,day2) ->
+		day1.year() == day2.year() &&
+    day1.month() == day2.month() &&
+    day1.date() == day2.date()
+
+
 	startTicking: ->
 		current_time = moment()
 		task_creation_time = moment( @get("created_at") )
 		end_of_day_time = moment().endOf("day")		
 
-		if current_time.diff( task_creation_time, "days" ) >= 1
+		unless @isSameDay(current_time, task_creation_time)
 			@set("timeLeft",  0 ) 
 			return
 		

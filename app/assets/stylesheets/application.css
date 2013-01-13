@@ -38,3 +38,8 @@ input::-moz-focus-inner { border: 0; }
 object, embed { 
   outline: 0;
 }
+
+.historyicon {
+  display: none;
+  visibility: hidden;
+}
