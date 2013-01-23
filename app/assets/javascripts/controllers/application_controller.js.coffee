@@ -17,7 +17,8 @@ FF.ApplicationController = Ember.ObjectController.extend
 			return
 		
 		diffMs = (end_of_day_time - current_time); # milliseconds between now & end of day
-		
+		diffMs = 0 if diffMs < 0
+
 		@set("timeLeft",  diffMs ) 
 		setTimeout @startTicking.bind(@), 1000  # 1 second
 
@@ -34,8 +35,8 @@ FF.ApplicationController = Ember.ObjectController.extend
 	).property("text","created_at")
 
 	completable: (->
-		@get("created_at") && @get("hoursLeft") == '00' && ! @get("content").isCompleted()
-	).property("created_at","completed","hoursLeft")
+		@get("created_at") && @get("timeLeft") == 0 && ! @get("content").isCompleted()
+	).property("created_at","completed","timeLeft")
 
 	clock: (->
 		text =  moment.utc( @get("timeLeft") ).format("HH:mm:ss")
