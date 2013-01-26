@@ -27,4 +27,5 @@ FF = Ember.Application.create({
 		}
   }
 });
+//= require date_formats
 //= require_tree .

@@ -23,3 +23,29 @@
 	float: left;
 
 }
+
+.history .right.row {
+  background-color: #009d9b;
+  padding-left: 10%;
+  padding-right: 5%;
+}
+
+.history .text {
+  padding-left: 52px;
+  background: url('/assets/quotemark.png') no-repeat;
+}
+
+.history .completed-at {
+  border-bottom: 2px solid #fff;
+}
+
+.history .month-view a {
+  display: block;
+  float: left;
+  height: 0px;
+  padding-top: 22px;
+  width: 22px;
+  background-color: #414141;
+  overflow: hidden;
+  margin-left: 8px;
+}

@@ -1,0 +1,14 @@
+<div class='rows-2'>
+  <div class='row left'>
+    <div>Task History</div>
+    {{view FF.TaskHistoryMonthView}}
+  </div>
+  {{#if selectedTask}}
+    <div class='row right'>
+      <div class='text'>{{selectedTask.text}}</div>
+      <div class='me'> - me</div>
+      <div class='completed-at taskHistoryDateFormat'>{{completedAt}}</div>
+      <div class='completed'>{{completed}}</div>
+    </div>
+  {{/if}}
+</div>

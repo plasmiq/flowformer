@@ -13,14 +13,15 @@ FF.Router = Ember.Router.extend
         task = FF.DontTask.createRecord()
         @_createTask(router,task)
 
-      gotoHistory: Ember.Router.transitionTo('history')
-
       _createTask: (router,task) ->
         router.get("store").commit();
         router.get("applicationController").set("content",task)
         unless  Em.none( _gaq )
           _gaq.push(['_trackEvent', 'Task', 'Created', task.get("task_type")]);
         router.transitionTo('task')
+
+      gotoTaskHistory: (router) ->
+        router.transitionTo('taskHistory')
         
       connectOutlets: (router) ->
         router.get("applicationController").connectOutlet("Welcome")
@@ -49,30 +50,13 @@ FF.Router = Ember.Router.extend
       startAgain: (router) ->
         router.transitionTo('welcome')
 
-      gotoHistory: Ember.Router.transitionTo('history')
-
       connectOutlets: (router) ->
         router.get("applicationController").connectOutlet("Task")
 
-    history: Ember.Route.extend
-
-      gotoWelcome: (router) ->
-        unless FF.Task.findActive
-          router.transitionTo('welcome')
-        else
-          router.transitionTo('task')
-
-      nextMonth: (router) ->
-        router.get("historyController").nextMonth()
-
-      prevMonth: (router) ->
-        router.get("historyController").prevMonth()
-
+    taskHistory: Ember.Route.extend
       selectTask: (router, context) ->
-        router.get("historyController").selectTask(context)
-
-      reuseTask: (router,context) ->
-        router.get("historyController").reuseTask(context)         
+        router.get("taskHistoryController").selectTask(context)
 
       connectOutlets: (router) ->
-        router.get("applicationController").connectOutlet("history")
+        router.get("taskHistoryController").setup();
+        router.get("applicationController").connectOutlet("taskHistory")

@@ -1,0 +1,6 @@
+{{currentMonth}}
+<div class='month-view'>
+        {{#each task in currentMonthTasks}}
+        <a {{action selectTask task}}>{{task.text}}</a>
+        {{/each}}
+</div>

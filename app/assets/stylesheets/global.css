@@ -1,0 +1,13 @@
+.rows-2 .row {
+  height: 10000px;
+}
+
+.rows-2 .row.left {
+  width: 49%;
+  float: left;
+}
+
+.rows-2 .row.right {
+  width: 34%;
+  float: right;
+}
