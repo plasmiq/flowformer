@@ -50,12 +50,21 @@ FF.Router = Ember.Router.extend
       startAgain: (router) ->
         router.transitionTo('welcome')
 
+      gotoTaskHistory: (router) ->
+        router.transitionTo('taskHistory')
+
       connectOutlets: (router) ->
         router.get("applicationController").connectOutlet("Task")
 
     taskHistory: Ember.Route.extend
       selectTask: (router, context) ->
         router.get("taskHistoryController").selectTask(context)
+      
+      selectNextMonth: (router) ->
+        router.get("taskHistoryController").selectNextMonth()
+
+      selectPrevMonth: (router) ->
+        router.get("taskHistoryController").selectPrevMonth()
 
       connectOutlets: (router) ->
         router.get("taskHistoryController").setup();

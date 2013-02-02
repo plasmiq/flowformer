@@ -1,14 +1,37 @@
 <div class='rows-2'>
   <div class='row left'>
-    <div>Task History</div>
-    {{view FF.TaskHistoryMonthView}}
+    <div class='sub-row'>
+      <a {{action selectPrevMonth}}>Prev month</a>
+      <div>
+        {{prevYear}}/{{prevMonth}}
+      </div>
+      <div class='content'>
+        {{view FF.TaskHistoryMonthView tasksBinding="previousMonthTasks"}}
+      </div>
+    </div>
+    <div class='sub-row'>
+      <a {{action selectNextMonth}}>Next month</a>
+      <div>
+        {{currentYear}}/{{currentMonth}}
+      </div>
+      <div class='content'>
+        {{view FF.TaskHistoryMonthView tasksBinding="currentMonthTasks"}}
+      </div>
+    </div>
+    <div class='clearfix'></div>
   </div>
+
   {{#if selectedTask}}
     <div class='row right'>
       <div class='text'>{{selectedTask.text}}</div>
       <div class='me'> - me</div>
       <div class='completed-at taskHistoryDateFormat'>{{completedAt}}</div>
       <div class='completed'>{{completed}}</div>
+      </br>
+      Extra info - to remove
+      <ul>
+        <li>task_type: {{selectedTask.task_type}}</li>
+      </ul>
     </div>
   {{/if}}
 </div>

@@ -1,6 +1,19 @@
-{{currentMonth}}
 <div class='month-view'>
-        {{#each task in currentMonthTasks}}
-        <a {{action selectTask task}}>{{task.text}}</a>
-        {{/each}}
+  {{#each row in view.tasks}}
+  <div>
+    <div class='day-name'>MON</div>
+    {{#each task in row}}
+      {{#if task.disabled}}
+        <a class='disabled'></a>
+      {{else}}
+        {{#if task.content}}
+          <a {{action selectTask task.content}}{{bindAttr class=":smile task.content.task_type"}}>{{task.content.smile}}</a>
+        {{else}}
+          <a class='empty'></a>
+        {{/if}}
+      {{/if}}
+    {{/each}}
+    <div class='clearfix'></div>
+  </div>
+  {{/each}}
 </div>

@@ -39,13 +39,58 @@
   border-bottom: 2px solid #fff;
 }
 
+.history .sub-row {
+  float: left;
+  width: 45%;
+  text-align: center;
+}
+
+.history .sub-row .content {
+  width: 185px;
+  margin: auto;
+}
+
 .history .month-view a {
   display: block;
   float: left;
-  height: 0px;
-  padding-top: 22px;
+  height: 22px;
   width: 22px;
   background-color: #414141;
   overflow: hidden;
   margin-left: 8px;
+  font-size: 15px;
 }
+
+.history .month-view a.disabled {
+  background-color: #414141;
+}
+
+.history .month-view a.empty {
+  height: 18px;
+  width: 18px;
+  border: 2px solid #414141;
+  background-color: black;
+}
+
+.history .month-view a.smile {
+  height: 22px;
+  width: 22px;
+  color: #fff;
+}
+
+.history .month-view a.smile.dodo {
+  background-color: #009d9b;
+}
+
+.history .month-view a.smile.dontdo {
+  background-color: #ff2f53;
+}
+
+.history .month-view .day-name {
+  font-size: 14px;
+  text-align: left;
+  margin-top: 16px;
+  margin-bottom: 10px;
+  margin-left: 8px;
+}
+

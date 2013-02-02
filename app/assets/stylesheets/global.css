@@ -1,3 +1,7 @@
+.clearfix {
+  clear: both;
+}
+
 .rows-2 .row {
   height: 10000px;
 }
