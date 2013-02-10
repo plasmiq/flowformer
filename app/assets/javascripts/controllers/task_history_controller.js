@@ -12,7 +12,7 @@ FF.TaskHistoryController = Ember.ObjectController.extend({
   humanCurrentMonth: null,
   humanPrevMonth: null,
 
-  init: function() {
+  initDates: function() {
     var _date = new FF.Date;
     var _currentYear = _date.get('year');
     var _currentMonth = _date.get('month');
@@ -24,25 +24,21 @@ FF.TaskHistoryController = Ember.ObjectController.extend({
 
     this.set('prevYear', _date.get('year'));
     this.set('prevMonth', _date.get('month'));
-
-    this.setHumanCurrentMonth();
-    this.setHumanPrevMonth();
   },
 
-  setup: function() {
+  setCurrentMonthTask: function() {
     this.set('currentMonthTasks', FF.Task.findForHistory({
       month: this.get('currentMonth'),
       year: this.get('currentYear')
     }));
+  }.observes('currentMonth'),
 
+  setPreviousMonthTask: function() {
     this.set('previousMonthTasks', FF.Task.findForHistory({
       month: this.get('prevMonth'),
       year: this.get('prevYear')
     }));
-
-    this.setHumanCurrentMonth();
-    this.setHumanPrevMonth();
-  },
+  }.observes('prevMonth'),
 
   setCompleted: function() {
     if(this.selectedTask) {
@@ -74,8 +70,6 @@ FF.TaskHistoryController = Ember.ObjectController.extend({
 
     this.set('currentMonth', _date.get('month'));
     this.set('currentYear', _date.get('year'));
-
-    this.setup();
   },
 
   selectPrevMonth: function() {
@@ -90,15 +84,13 @@ FF.TaskHistoryController = Ember.ObjectController.extend({
 
     this.set('prevMonth', _date.get('month'));
     this.set('prevYear', _date.get('year'));
-
-    this.setup();
   },
 
   setHumanCurrentMonth: function() {
     this.set('humanCurrentMonth', this.get('months')[this.get('currentMonth')]);
-  },
+  }.observes('currentMonth'),
 
   setHumanPrevMonth: function() {
     this.set('humanPrevMonth', this.get('months')[this.get('prevMonth')]);
-  }
+  }.observes('prevMonth')
 })

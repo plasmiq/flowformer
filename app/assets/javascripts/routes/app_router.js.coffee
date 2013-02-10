@@ -67,5 +67,5 @@ FF.Router = Ember.Router.extend
         router.get("taskHistoryController").selectPrevMonth()
 
       connectOutlets: (router) ->
-        router.get("taskHistoryController").setup();
+        router.get("taskHistoryController").initDates()
         router.get("applicationController").connectOutlet("taskHistory")

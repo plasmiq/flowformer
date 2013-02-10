@@ -1,8 +1,8 @@
 <div class='month-view'>
-  {{#each row in view.tasks}}
+  {{#collection contentBinding="view.tasks"}}
   <div>
-    <div class='day-name'>MON</div>
-    {{#each task in row}}
+    <div class='day-name'>{{humanDay view.contentIndex}}</div>
+    {{#each task in view.content}}
       {{#if task.disabled}}
         <a class='disabled'></a>
       {{else}}
@@ -15,5 +15,5 @@
     {{/each}}
     <div class='clearfix'></div>
   </div>
-  {{/each}}
+  {{/collection}}
 </div>
