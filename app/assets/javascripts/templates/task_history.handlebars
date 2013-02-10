@@ -7,7 +7,7 @@
         {{view.testView}}
       </div>
       <div class='content'>
-        {{view FF.TaskHistoryMonthView tasksBinding="previousMonthTasks"}}
+        {{view FF.TaskHistoryMonthView contentBinding="previousMonthTasks"}}
       </div>
     </div>
     <div class='sub-row'>
@@ -16,7 +16,7 @@
         {{humanCurrentMonth}} {{currentYear}}
       </div>
       <div class='content'>
-        {{view FF.TaskHistoryMonthView tasksBinding="currentMonthTasks"}}
+        {{view FF.TaskHistoryMonthView contentBinding="currentMonthTasks"}}
       </div>
     </div>
     <div class='clearfix'></div>

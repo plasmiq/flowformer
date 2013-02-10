@@ -1,19 +1,15 @@
-<div class='month-view'>
-  {{#collection contentBinding="view.tasks"}}
-  <div>
-    <div class='day-name'>{{humanDay view.contentIndex}}</div>
-    {{#each task in view.content}}
-      {{#if task.disabled}}
-        <a class='disabled'></a>
+<div>
+  <div class='day-name'>{{view.dayName}}</div>
+  {{#each task in view.content}}
+    {{#if task.disabled}}
+      <a class='disabled'></a>
+    {{else}}
+      {{#if task.content}}
+        <a {{action selectTask task.content}}{{bindAttr class=":smile task.content.task_type"}}>{{task.content.smile}}</a>
       {{else}}
-        {{#if task.content}}
-          <a {{action selectTask task.content}}{{bindAttr class=":smile task.content.task_type"}}>{{task.content.smile}}</a>
-        {{else}}
-          <a class='empty'></a>
-        {{/if}}
+        <a class='empty'></a>
       {{/if}}
-    {{/each}}
-    <div class='clearfix'></div>
-  </div>
-  {{/collection}}
+    {{/if}}
+  {{/each}}
+  <div class='clearfix'></div>
 </div>
