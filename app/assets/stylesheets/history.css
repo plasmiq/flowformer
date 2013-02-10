@@ -26,13 +26,75 @@
 
 .history .right.row {
   background-color: #009d9b;
-  padding-left: 10%;
-  padding-right: 5%;
+}
+
+.history .right.row .content {
+  margin-top: 170px;
+  margin-left: 85px;
+  position: relative;
+}
+
+.history .quotemark {
+  position: absolute;
+  width: 53px;
+  height: 42px;
+  background: url('/assets/quotemark.png') no-repeat;
+  position: absolute;
+  left: -65px;
 }
 
 .history .text {
-  padding-left: 52px;
-  background: url('/assets/quotemark.png') no-repeat;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.history .me {
+  font-size: 20px;
+  font-weight: normal;
+  margin-top: 25px;
+  margin-bottom: 35px;
+}
+
+.history .completed-at {
+  font-size: 24px;
+}
+
+.history .completed {
+  font-size: 20px;
+}
+
+.history .completed-at,
+.history .completed {
+  font-weight: normal;
+}
+
+
+.history .left.row {
+  margin-top: 90px;
+  margin-left: 25px;
+  position: relative;
+}
+
+.history .left.row a.home {
+  position: absolute;
+  width: 22px;
+  height: 0px;
+  background: url("home_button.png") 0 0;
+  display: block;
+  padding-top: 20px;
+  overflow: hidden;
+  top: -70px;
+}
+
+.history .left.row a.home:hover {
+  position: absolute;
+  width: 22px;
+  height: 0px;
+  background: url("home_button.png") 22px 0;
+  display: block;
+  padding-top: 20px;
+  overflow: hidden;
+  top: -70px;
 }
 
 .history .completed-at {
@@ -41,13 +103,32 @@
 
 .history .sub-row {
   float: left;
-  width: 45%;
-  text-align: center;
+  width: 50%;
+}
+
+.history .sub-row .month-nav {
+  position: relative;
+  font-size: 24px;
+}
+
+.history .sub-row .month-nav a {
+  position: absolute;
+}
+
+.history .sub-row.prev .wrapper {
+  margin-left: 40px;
+}
+
+.history .sub-row.prev .month-nav a {
+  left: -40px;
+}
+
+.history .sub-row.current .month-nav a {
+  left: 220px;
 }
 
 .history .sub-row .content {
   width: 185px;
-  margin: auto;
 }
 
 .history .month-view a {
@@ -57,7 +138,7 @@
   width: 22px;
   background-color: #414141;
   overflow: hidden;
-  margin-left: 8px;
+  margin-right: 8px;
   font-size: 15px;
 }
 
@@ -76,6 +157,7 @@
   height: 22px;
   width: 22px;
   color: #fff;
+  text-align: center;
 }
 
 .history .month-view a.smile.dodo {
@@ -91,6 +173,5 @@
   text-align: left;
   margin-top: 16px;
   margin-bottom: 10px;
-  margin-left: 8px;
 }
 

@@ -70,13 +70,14 @@ FF.Task.reopenClass
 
       $.each(FF.Task.findAllTasks(), (index, task)->
         date = task.get('completed_at')
-        if(date.getFullYear() == year && date.getMonth() == month)
-          for i in [0..5]
-            for j in [0..6]
-              index = (i * 7) + j
+        if(date) 
+          if(date.getFullYear() == year && date.getMonth() == month)
+            for i in [0..5]
+              for j in [0..6]
+                index = (i * 7) + j
 
-              if(index == ((date.getDate() - 1) + firstDayOfTheMonth(year, month)))
-                tasks[j][i].set('content', task)
+                if(index == ((date.getDate() - 1) + firstDayOfTheMonth(year, month)))
+                  tasks[j][i].set('content', task)
       )
 
       return tasks

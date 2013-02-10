@@ -1,19 +1,21 @@
 <div class='rows-2'>
   <div class='row left'>
-    <div class='sub-row'>
-      <a {{action selectPrevMonth}}><</a>
-      <div>
-        {{humanPrevMonth}} {{prevYear}}
-        {{view.testView}}
-      </div>
-      <div class='content'>
-        {{view FF.TaskHistoryMonthView contentBinding="previousMonthTasks"}}
+    <a {{action gotoHome}} class='home'>Home</a>
+    <div class='sub-row prev'>
+      <div class='wrapper'>
+        <div class='month-nav'>
+          <a {{action selectPrevMonth}}><</a>
+          {{humanPrevMonth}} {{prevYear}}
+        </div>
+        <div class='content'>
+          {{view FF.TaskHistoryMonthView contentBinding="previousMonthTasks"}}
+        </div>
       </div>
     </div>
-    <div class='sub-row'>
-      <a {{action selectNextMonth}}>></a>
-      <div>
+    <div class='sub-row current'>
+      <div class='month-nav'>
         {{humanCurrentMonth}} {{currentYear}}
+        <a {{action selectNextMonth}}>></a>
       </div>
       <div class='content'>
         {{view FF.TaskHistoryMonthView contentBinding="currentMonthTasks"}}
@@ -24,16 +26,21 @@
 
   {{#if selectedTask}}
     <div class='row right'>
-      <div class='text'>{{selectedTask.text}}</div>
-      <div class='me'> - me</div>
-      <div class='completed-at taskHistoryDateFormat'>{{completedAt}}</div>
-      <div class='completed'>{{completed}}</div>
-      </br>
-      Extra info - to remove
-      <ul>
-        <li>task_type: {{selectedTask.task_type}}</li>
-        <li>completed: {{selectedTask.completed}}</li>
-      </ul>
+      <div class='content'>
+        <div class='quotemark'></div>
+        <div class='text'>{{selectedTask.text}}</div>
+        <div class='me'> - me</div>
+        <div class='completed-at taskHistoryDateFormat'>{{completedAt}}</div>
+        <div class='completed'>{{completed}}</div>
+        <!--
+        </br>
+        Extra info - to remove
+        <ul>
+          <li>task_type: {{selectedTask.task_type}}</li>
+          <li>completed: {{selectedTask.completed}}</li>
+        </ul> 
+        -->
+      </div>
     </div>
   {{/if}}
 </div>
