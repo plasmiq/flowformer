@@ -44,18 +44,16 @@ FF.TaskHistoryController = Ember.ObjectController.extend({
     if(this.selectedTask) {
       this.set('completed', (this.selectedTask.get('completed') == 'true' ? 'success' : 'fail'));
     }
-  },
+  }.observes('selectedTask'),
 
   setCompletedAt: function() {
     if(this.selectedTask) {
       this.set('completedAt', $.format.date(this.selectedTask.get('completed_at'), "ddd dd MMM yyyy"));
     }
-  },
+  }.observes('selectedTask'),
 
 	selectTask: function(task) {
 		this.set('selectedTask', task.context);
-    this.setCompleted();
-    this.setCompletedAt();
 	},
 
   selectNextMonth: function() {
