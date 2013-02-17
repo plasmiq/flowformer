@@ -5,6 +5,34 @@
 	position:absolute;
 	color: white;
 }
+
+.history .calendar,
+.history .details {
+}
+
+.history .calendar {
+  width: 100%;
+  float: left;
+  margin-top: 90px;
+  margin-left: 3%;
+  position: relative;
+}
+
+
+.history .details {
+  width: 100%;
+  float: right;
+  background-color: #009d9b;
+}
+
+
+.history .details .content {
+  margin-top: 170px;
+  margin-left: 85px;
+  position: relative;
+}
+
+
 .history .welcomeicon {
 	width: 22px;
 	height: 20px;
@@ -21,17 +49,11 @@
 .history .month {
 	width: 300px;
 	float: left;
-
+  width: 100%;
 }
 
-.history .right.row {
-  background-color: #009d9b;
-}
-
-.history .right.row .content {
-  margin-top: 170px;
-  margin-left: 85px;
-  position: relative;
+.history .month.prev {
+  display: none;
 }
 
 .history .quotemark {
@@ -69,13 +91,7 @@
 }
 
 
-.history .left.row {
-  margin-top: 90px;
-  margin-left: 25px;
-  position: relative;
-}
-
-.history .left.row a.home {
+.history a.home {
   position: absolute;
   width: 22px;
   height: 0px;
@@ -86,7 +102,7 @@
   top: -70px;
 }
 
-.history .left.row a.home:hover {
+.history a.home:hover {
   position: absolute;
   width: 22px;
   height: 0px;
@@ -101,33 +117,12 @@
   border-bottom: 2px solid #fff;
 }
 
-.history .sub-row {
-  float: left;
-  width: 50%;
-}
-
-.history .sub-row .month-nav {
+.history .month .month-nav {
   position: relative;
   font-size: 24px;
 }
 
-.history .sub-row .month-nav a {
-  position: absolute;
-}
-
-.history .sub-row.prev .wrapper {
-  margin-left: 40px;
-}
-
-.history .sub-row.prev .month-nav a {
-  left: -40px;
-}
-
-.history .sub-row.current .month-nav a {
-  left: 220px;
-}
-
-.history .sub-row .content {
+.history .month .content {
   width: 185px;
 }
 
@@ -169,6 +164,7 @@
 }
 
 .history .month-view .day-name {
+  display: none;
   font-size: 14px;
   text-align: left;
   margin-top: 16px;

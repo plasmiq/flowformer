@@ -1,17 +1,3 @@
 .clearfix {
   clear: both;
 }
-
-.rows-2 .row {
-  height: 10000px;
-}
-
-.rows-2 .row.left {
-  width: 54%;
-  float: left;
-}
-
-.rows-2 .row.right {
-  width: 44%;
-  float: right;
-}

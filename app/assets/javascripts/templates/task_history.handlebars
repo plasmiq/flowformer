@@ -1,38 +1,36 @@
-<div class='rows-2'>
-  <div class='row left'>
-    <a {{action gotoHome}} class='home'>Home</a>
-    <div class='sub-row prev'>
-      <div class='wrapper'>
-        <div class='month-nav'>
-          <a {{action selectPrevMonth}}><</a>
-          {{humanPrevMonth}} {{prevYear}}
-        </div>
-        <div class='content'>
-          {{view FF.TaskHistoryMonthView contentBinding="previousMonthTasks"}}
-        </div>
-      </div>
+<div class='calendar'>
+  <a {{action gotoHome}} class='home'>Home</a>
+  <div class='month prev'>
+    <div class='month-nav'>
+      <a {{action selectPrevMonth}}><</a>
+      {{humanPrevMonth}} {{prevYear}}
     </div>
-    <div class='sub-row current'>
-      <div class='month-nav'>
-        {{humanCurrentMonth}} {{currentYear}}
-        <a {{action selectNextMonth}}>></a>
-      </div>
-      <div class='content'>
-        {{view FF.TaskHistoryMonthView contentBinding="currentMonthTasks"}}
-      </div>
+    <div class='content'>
+      {{view FF.TaskHistoryMonthView contentBinding="previousMonthTasks"}}
     </div>
-    <div class='clearfix'></div>
   </div>
-
-  {{#if selectedTask}}
-    <div class='row right'>
-      <div class='content'>
-        <div class='quotemark'></div>
-        <div class='text'>{{selectedTask.text}}</div>
-        <div class='me'> - me</div>
-        <div class='completed-at taskHistoryDateFormat'>{{completedAt}}</div>
-        <div class='completed'>{{completed}}</div>
-      </div>
+  <div class='month current'>
+    <div class='month-nav'>
+      <a class='prev-link' {{action selectPrevMonth}}><</a>
+      {{humanCurrentMonth}} {{currentYear}}
+      <a {{action selectNextMonth}}>></a>
     </div>
-  {{/if}}
+    <div class='content'>
+      {{view FF.TaskHistoryMonthView contentBinding="currentMonthTasks"}}
+    </div>
+  </div>
+  <div class='clearfix'></div>
 </div>
+
+{{#if selectedTask}}
+  <div class='details'>
+    <div class='content'>
+      <div class='quotemark'></div>
+      <div class='text'>{{selectedTask.text}}</div>
+      <div class='me'> - me</div>
+      <div class='completed-at taskHistoryDateFormat'>{{completedAt}}</div>
+      <div class='completed'>{{completed}}</div>
+    </div>
+  </div>
+{{/if}}
+<div class='clearfix'></div>
