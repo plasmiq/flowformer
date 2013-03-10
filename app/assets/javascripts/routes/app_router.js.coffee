@@ -70,7 +70,12 @@ FF.Router = Ember.Router.extend
         router.transitionTo('taskHistory')
 
       gotoHome: (router) ->
-        router.transitionTo('welcome')
+        currentTask = FF.Task.findActive
+        if currentTask
+          router.get("applicationController").set("content", current_record);
+          router.transitionTo("task");
+        else
+          router.transitionTo('welcome')
 
       connectOutlets: (router) ->
         router.get("taskHistoryController").initDates()

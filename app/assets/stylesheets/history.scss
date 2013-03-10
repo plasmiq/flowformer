@@ -1,0 +1,244 @@
+.history {
+  font-size: 22pt;
+	background-color: black;
+  height: 100%;
+	width: 100%;
+	position: relative;
+	color: white;
+
+  .calendar {
+    width: 50%;
+    float: left;
+    margin-top: 1%;
+    margin-left: 3%;
+    position: relative;
+  }
+
+  .details {
+    width: 45%;
+    height: 100%;
+    float: right;
+    background-color: #009d9b;
+    padding-top: 170px;
+    .quotemark {
+      width: 36px;
+      height: 28px;
+      background: url('/assets/quotemark-small.png') no-repeat;
+      float: left;
+      margin-right: 10px;
+      margin-left: 1.4em;
+    }
+    .content {
+      float: left;
+      .subcontent {
+        border-bottom: 2px solid #fff;
+        font-size: 0.8em;
+        .text {
+          font-size: 1.5em;
+          font-weight: bold;
+        }
+        .me {
+          font-size: 1.3em;
+          font-weight: normal;
+          margin-top: 0.2em;
+          margin-bottom: 0.7em;
+        }
+        .completed-at {
+          font-size: 1.2em;
+          font-weight: bold;
+        }
+      }
+      .completed {
+        font-size: 0.6em;
+        font-weight: normal;
+      }
+    }
+  }
+
+  .welcomeicon {
+    width: 22px;
+    height: 20px;
+    display: block;
+    margin-left: 20px;
+    margin-top: 20px;
+    background: url("home_button.png") 0 0;
+  }
+
+  .welcomeicon:hover {
+    background-position: 22px 0;
+  }
+
+  .month {
+    width: 50%;
+    float: left;
+
+    .select-month {
+      font-size: 1.0em;
+      float: left;
+      &.prev {
+        margin-right: 0.5em;
+      }
+      &.next {
+        margin-left: 0.5em;
+      }
+    }
+    &.current .select-month.prev {
+      display: none;
+    }
+
+    .name {
+      font-size: 1.0em;
+    }
+
+    .content {
+      float: left;
+    }
+  }
+
+  a.home {
+    width: 22px;
+    height: 0px;
+    background: url("home_button.png") 0 0;
+    display: block;
+    padding-top: 20px;
+    overflow: hidden;
+  }
+
+  a.home:hover {
+    width: 22px;
+    height: 0px;
+    background: url("home_button.png") 22px 0;
+    display: block;
+    padding-top: 20px;
+    overflow: hidden;
+  }
+
+  .month-view {
+    margin-bottom: 0px;
+    a {
+      display: block;
+      float: left;
+      height: 22px;
+      width: 22px;
+      background-color: #414141;
+      border: 2px solid #414141;
+      overflow: hidden;
+      margin-right: 8px;
+      margin-top: 1%;
+      font-size: 15px;
+    }
+
+    a.disabled {
+      background-color: #414141;
+    }
+
+    a.empty {
+      background-color: black;
+    }
+
+    a.smile {
+      color: #fff;
+      text-align: center;
+    }
+    
+    a.smile.dodo {
+      background-color: #009d9b;
+      border-color: #009d9b;
+    }
+
+    a.smile.dontdo {
+      background-color: #ff2f53;
+      border-color: #ff2f53;
+    }
+
+    .day-name {
+      width: 40px;
+      font-size: 0.5em;
+      text-align: left;
+      margin-top: 0.5em;
+      margin-bottom: 0.3em;
+      display: block;
+    }
+  }
+}
+
+@media all and (max-width: 560px) {
+  .history {
+    .details {
+      .quotemark {
+        margin-left: 0.8em;
+      }
+      .content {
+        .subcontent {
+          .text {
+            font-size: 1.2em;
+          }
+          .me {
+            font-size: 1em;
+          }
+          .completed-at {
+            font-size: 0.9em;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 650px) {
+  .history {
+    .calendar {
+      .month.prev {
+        display: none;
+      }
+
+      .month.current .select-month.prev {
+        display: block;
+      }
+    }
+
+  }
+}
+
+
+@media all and (max-width: 980px) {
+  .history {
+    .calendar {
+      width: 100%;
+      height: 55%;
+      clear: both;
+      margin-left: 2px;
+      .month {
+        .month-content {
+          width: 310px;
+        }
+      }
+    }
+    .details {
+      width: 100%;
+      height: 45%;
+      clear: both;
+      padding-top: 20px;
+    }
+
+    .month {
+      text-align: center;
+      .month-content {
+        margin: auto;
+        text-align: left;
+        width: 260px;
+      }
+    }
+  }
+  .history .calendar .month-view .day-name {
+    float: left;
+    width: 50px;
+  }
+}
+
+@media all and (max-width: 1100px) {
+  .history {
+    font-size: 18pt;
+  }
+}
+

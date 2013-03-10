@@ -42,22 +42,6 @@
   .ending_text {
     height: 1em !important;
   }
-
-  .history .month {
-    width: 50%;
-  }
-
-  .history .month.prev {
-    display: block;
-  }
-
-  .history .month .prev-link {
-    display: none;
-  }
-
-  .history .month-view .day-name {
-    display: block;
-  }
 }
 
 @media all and (min-width: 799px)   {
@@ -79,15 +63,6 @@
   body {
     font-size: 24pt;
   }
-
-  .history .calendar {
-    width: 50%;
-  }
-
-  .history .details {
-    width: 45%;
-  }
-
 }
 
 
@@ -95,6 +70,9 @@
 	.infoicon {
 		display: none;
 	}
+  .welcome .historyicon {
+    right: 20px;
+  }
 }
 
 @media all and (max-width: 479px) {
