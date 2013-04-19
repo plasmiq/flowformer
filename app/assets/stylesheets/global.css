@@ -3,7 +3,8 @@
 }
 html,
 body,
-.ember-view {
+.ember-view,
+.task_history {
   height: 100%;
   background-color: black;
 }

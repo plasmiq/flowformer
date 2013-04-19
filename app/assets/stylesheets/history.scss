@@ -1,5 +1,8 @@
+.task_history {
+  font-size: 24pt;
+}
 .belt {
-  margin-bottom: 1em;
+  margin-bottom: 0.2em;
   a.home {
     width: 1em;
     height: 1em;
@@ -27,9 +30,10 @@
     float: left;
     height: 100%;
     position: relative;
-    padding-top: 0.5em;
-    padding-bottom: 3em;
-    padding-left: 0.5em;
+    .calendar_wrapper {
+      padding-top: 0.5em;
+      padding-left: 0.5em;
+    }
   }
 
   .details {
@@ -37,8 +41,9 @@
     height: 100%;
     float: right;
     background-color: #009d9b;
-    padding-top: 5em;
-    padding-bottom: 0em;
+    .details_wrapper {
+      padding-top: 5em;
+    }
     .quotemark {
       width: 36px;
       height: 28px;
@@ -119,14 +124,14 @@
     a {
       display: block;
       float: left;
-      height: 1em;
-      width: 1em;
+      height: 22px;
+      width: 22px;
       background-color: #414141;
       border: 2px solid #414141;
       overflow: hidden;
       margin-right: 0.15em;
       margin-top: 0.15em;
-      font-size: 0.8em;
+      font-size: 14px;
     }
 
     a.disabled {
@@ -163,7 +168,83 @@
   }
 }
 
+@media all and (max-width: 360px) {
+  .task_history {
+    font-size: 16pt;
+  }
+  .history {
+    .calendar {
+      .month {
+        .month-content {
+          width: 300px;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 980px) {
+  .history {
+    .calendar {
+      height: auto;
+      width: 100%;
+      padding-left: 0;
+      .month {
+        .month-content {
+          width: 320px;
+        }
+      }
+    }
+    .details {
+      width: 100%;
+      height: auto;
+      clear: both;
+      margin-top: 0.5em;
+      padding-top: 1em;
+      padding-bottom: 0em;
+      .details_wrapper {
+        padding-top: 0;
+      }
+    }
+
+    .month {
+      text-align: center;
+      .month-content {
+        margin: auto;
+        text-align: left;
+        width: 260px;
+      }
+    }
+  }
+  .history .calendar .month-view .day-name {
+    float: left;
+    width: 50px;
+  }
+}
+
+@media all and (max-width: 650px) {
+  .history {
+    .calendar {
+      .month.prev {
+        display: none;
+      }
+
+      .month.current {
+        width: 100%;
+        .select-month.prev {
+          display: block;
+          float: left;
+        }
+      }
+    }
+
+  }
+}
+
 @media all and (max-width: 560px) {
+  .task_history {
+    font-size: 22pt;
+  }
   .history {
     .details {
       .quotemark {
@@ -186,52 +267,21 @@
   }
 }
 
-@media all and (max-width: 650px) {
-  .history {
-    .calendar {
-      .month.prev {
-        display: none;
-      }
-
-      .month.current .select-month.prev {
-        display: block;
-      }
-    }
-
+@media all and (max-width: 420px) {
+  .task_history {
+    font-size: 21pt;
   }
 }
 
 
-@media all and (max-width: 980px) {
+@media all and (max-width: 360px) {
   .history {
     .calendar {
-      width: auto;
-      height: auto;
       .month {
         .month-content {
-          width: 310px;
+          width: 300px;
         }
       }
     }
-    .details {
-      width: 100%;
-      height: auto;
-      clear: both;
-      padding-top: 1em;
-      padding-bottom: 3em;
-    }
-
-    .month {
-      text-align: center;
-      .month-content {
-        margin: auto;
-        text-align: left;
-        width: 260px;
-      }
-    }
-  }
-  .history .calendar .month-view .day-name {
-    float: left;
-    width: 50px;
   }
 }

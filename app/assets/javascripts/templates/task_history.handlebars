@@ -1,43 +1,51 @@
-<div class='calendar'>
-  <div class="belt">
-    <a {{action gotoHome}} class="home"></a>
-    <a {{action gotoHome}}>Home</a>
-  </div>
-  <div class='month prev'>
-    <div class='month-content'>
-      <a {{action selectPrevMonth}} class='select-month prev'><</a>
-      <div class='content'>
-        <div class='name'>{{humanPrevMonth}} {{prevYear}}</div>
-        {{view FF.TaskHistoryMonthView contentBinding="previousMonthTasks"}}
+<div class='task_history'>
+  <div class='calendar'>
+    <div class='calendar_wrapper'>
+      <div class='calendar_wrapper'>
+        <div class="belt">
+          <a {{action gotoHome}} class="home"></a>
+          <a {{action gotoHome}}>Home</a>
+        </div>
+        <div class='month prev'>
+          <div class='month-content'>
+            <a {{action selectPrevMonth}} class='select-month prev'><</a>
+            <div class='content'>
+              <div class='name'>{{humanPrevMonth}} {{prevYear}}</div>
+              {{view FF.TaskHistoryMonthView contentBinding="previousMonthTasks"}}
+            </div>
+            <div class='clearfix'></div>
+          </div>
+        </div>
+        <div class='month current'>
+          <div class='month-content'>
+            <a class='select-month prev' {{action selectPrevMonth}}><</a>
+            <div class='content'>
+              <div class='name'>{{humanCurrentMonth}} {{currentYear}}</div>
+              {{view FF.TaskHistoryMonthView contentBinding="currentMonthTasks"}}
+            </div>
+            <a {{action selectNextMonth}} class='select-month next'>></a>
+            <div class='clearfix'></div>
+          </div>
+        </div>
+        <div class='clearfix'></div>
       </div>
-      <div class='clearfix'></div>
     </div>
   </div>
-  <div class='month current'>
-    <div class='month-content'>
-      <a class='select-month prev' {{action selectPrevMonth}}><</a>
-      <div class='content'>
-        <div class='name'>{{humanCurrentMonth}} {{currentYear}}</div>
-        {{view FF.TaskHistoryMonthView contentBinding="currentMonthTasks"}}
+
+  <div class='details'>
+   {{#if selectedTask}}
+      <div class='details_wrapper'>
+        <div class='quotemark'></div>
+        <div class='content'>
+          <div class='subcontent'>
+            <div class='text'>{{selectedTask.text}}</div>
+            <div class='me'> - me</div>
+            <div class='completed-at taskHistoryDateFormat'>{{completedAt}}</div>
+          </div>
+          <div class='completed'>{{completed}}</div>
+        </div>
       </div>
-      <a {{action selectNextMonth}} class='select-month next'>></a>
-      <div class='clearfix'></div>
-    </div>
+    {{/if}}
   </div>
   <div class='clearfix'></div>
 </div>
-
-{{#if selectedTask}}
-  <div class='details'>
-    <div class='quotemark'></div>
-    <div class='content'>
-      <div class='subcontent'>
-        <div class='text'>{{selectedTask.text}}</div>
-        <div class='me'> - me</div>
-        <div class='completed-at taskHistoryDateFormat'>{{completedAt}}</div>
-      </div>
-      <div class='completed'>{{completed}}</div>
-    </div>
-  </div>
-{{/if}}
-<div class='clearfix'></div>
