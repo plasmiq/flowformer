@@ -1,5 +1,18 @@
 .task_history {
   font-size: 24pt;
+  background-color: #000;
+  &.task_selected_success {
+    background-color: #009d9b;
+    .details {
+      background-color: #009d9b;
+    }
+  }
+  &.task_selected_fail {
+    background-color: #ff2f53;
+    .details {
+      background-color: #ff2f53;
+    }
+  }
 }
 .belt {
   margin-bottom: 0.2em;
@@ -30,6 +43,7 @@
     float: left;
     height: 100%;
     position: relative;
+    background-color: #000;
     .calendar_wrapper {
       padding-top: 0.5em;
       padding-left: 0.5em;
@@ -40,17 +54,17 @@
     width: 45%;
     height: 100%;
     float: right;
-    background-color: #009d9b;
     .details_wrapper {
       padding-top: 5em;
+      padding-left: 1em;
     }
     .quotemark {
       width: 36px;
       height: 28px;
-      background: url('/assets/quotemark-small.png') no-repeat;
+      background: url('/assets/quotemark.png') no-repeat;
+      background-size: 36px 28px;
       float: left;
       margin-right: 10px;
-      margin-left: 1.4em;
     }
     .content {
       float: left;
@@ -189,9 +203,10 @@
       height: auto;
       width: 100%;
       padding-left: 0;
+      padding-bottom: 0.5em;
       .month {
         .month-content {
-          width: 320px;
+          width: 300px;
         }
       }
     }
@@ -247,9 +262,6 @@
   }
   .history {
     .details {
-      .quotemark {
-        margin-left: 0.8em;
-      }
       .content {
         .subcontent {
           .text {
@@ -279,7 +291,7 @@
     .calendar {
       .month {
         .month-content {
-          width: 300px;
+          width: 290px;
         }
       }
     }

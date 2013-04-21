@@ -1,4 +1,4 @@
-<div class='task_history'>
+<div {{bindAttr class=":task_history cssClass"}}>
   <div class='calendar'>
     <div class='calendar_wrapper'>
       <div class='calendar_wrapper'>
@@ -44,6 +44,7 @@
           </div>
           <div class='completed'>{{completed}}</div>
         </div>
+        <div class='clearfix'></div>
       </div>
     {{/if}}
   </div>

@@ -11,6 +11,7 @@ FF.TaskHistoryController = Ember.ObjectController.extend({
   months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
   humanCurrentMonth: null,
   humanPrevMonth: null,
+  cssClass: null,
 
   initDates: function() {
     var _date = new FF.Date;
@@ -53,7 +54,9 @@ FF.TaskHistoryController = Ember.ObjectController.extend({
   }.observes('selectedTask'),
 
 	selectTask: function(task) {
-		this.set('selectedTask', task.context);
+    this.set('selectedTask', task.context);
+    taskStatus = this.selectedTask.get('completed') == 'true' ? 'success' : 'fail';
+    this.set('cssClass', 'task_selected_' + taskStatus);
 	},
 
   selectNextMonth: function() {
