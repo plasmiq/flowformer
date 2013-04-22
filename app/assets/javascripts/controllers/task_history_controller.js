@@ -55,8 +55,8 @@ FF.TaskHistoryController = Ember.ObjectController.extend({
 
 	selectTask: function(task) {
     this.set('selectedTask', task.context);
-    taskStatus = this.selectedTask.get('completed') == 'true' ? 'success' : 'fail';
-    this.set('cssClass', 'task_selected_' + taskStatus);
+    taskStatus = this.selectedTask.get('completed')
+    this.set('cssClass', 'task_selected_' + this.selectedTask.get('task_type'));
 	},
 
   selectNextMonth: function() {

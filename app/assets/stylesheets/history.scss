@@ -1,13 +1,13 @@
 .task_history {
   font-size: 24pt;
   background-color: #000;
-  &.task_selected_success {
+  &.task_selected_dodo {
     background-color: #009d9b;
     .details {
       background-color: #009d9b;
     }
   }
-  &.task_selected_fail {
+  &.task_selected_dontdo {
     background-color: #ff2f53;
     .details {
       background-color: #ff2f53;
