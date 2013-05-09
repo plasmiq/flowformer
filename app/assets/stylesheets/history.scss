@@ -231,10 +231,6 @@
       }
     }
   }
-  .history .calendar .month-view .day-name {
-    float: left;
-    width: 50px;
-  }
 }
 
 @media all and (max-width: 650px) {
@@ -252,7 +248,10 @@
         }
       }
     }
-
+  }
+  .history .calendar .month-view .day-name {
+    float: left;
+    width: 50px;
   }
 }
 
