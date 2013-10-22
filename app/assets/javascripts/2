@@ -1,7 +1,0 @@
--------------------------------
-<div class='month-view'>
-        {{#each row in tasks}}
-        <div>
-        </div>
-        {{/each}}
-</div>
