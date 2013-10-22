@@ -1,9 +1,13 @@
 //= require jquery
 //= require jquery_ujs
+//= require moment.min.js
 //= require fancybox
 //= require handlebars
 //= require ember
 //= require ember-data
+//= require local_storage_polyfill.js
+//= require local_storage_adapter.js
+//= require jquery.dateFormat-1.0.js
 //= require_self
 //= require_tree ./lib
 //= require ./store
