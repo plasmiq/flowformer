@@ -5,42 +5,42 @@
 	<div id="shadow"></div>
 </div>
 
-<div id="task">
-	<span class="quote"></span>
+<div class="centered">
 
-	{{#unless completed}}
-		{{view Ember.TextArea valueBinding="text" placeholderBinding="placeholder" tabindex="1" disabledBinding="isConfirmed" spellcheck="false"}}
-	{{else}}
-		{{view Ember.TextArea valueBinding="msgCompleted" disabled="true" spellcheck="false" class="ending_text"}}
-	{{/unless}}
+	{{#if completable}}
+		<div id="compleated">
+			<div class="cen">
+				<p>
+					Today's time is up, did you {{msgCompletable}}?
+				</p>
+			</div>
+			<a {{action completeTask}} class="yes">YES</a>
+			<a {{action rejectTask}} class="no">NO</a>
+		</div>
+	{{/if}}
 
-	<div class="me">- me</div>
 
-	<div class="buttons">
-		{{#if agreedable}}
-			<a {{action confirmTask}} class="agree_button button"></a>
-		{{/if}}
+	<div id="task">
+		<span class="quote"></span>
 
-		{{#if completed}}
-			<a {{action startAgain}} class="welldone_button button"></a>
-		{{/if}}
+		{{#unless completed}}
+			{{view Ember.TextArea valueBinding="text" placeholderBinding="placeholder" tabindex="1" disabledBinding="isConfirmed" spellcheck="false"}}
+		{{else}}
+			{{view Ember.TextArea valueBinding="msgCompleted" disabled="true" spellcheck="false" class="ending_text"}}
+		{{/unless}}
+
+		<div class="me">- me</div>
+
+		<div class="buttons">
+			{{#if agreedable}}
+				<a {{action confirmTask}} class="agree_button button"></a>
+			{{/if}}
+
+			{{#if completed}}
+				<a {{action startAgain}} class="welldone_button button"></a>
+			{{/if}}
+		</div>
+
 	</div>
 
 </div>
-
-{{#if completable}}
-	<div id="compleated">
-		<div class="cen">
-			<p>
-				You had 24 hrs.<br/>
-				Did you {{msgCompletable}}?
-			</p>
-		</div>
-		<a {{action completeTask}} class="yes"></a>
-		<a {{action rejectTask}} class="no"></a>
-	</div>
-{{/if}}
-
-{{view FF.FooterView class="with_logo" id="footer"}}
-
-<a {{action gotoTaskHistory}} class="historyicon"></a>

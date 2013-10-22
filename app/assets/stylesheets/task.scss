@@ -5,26 +5,36 @@
 	color: red;
 	font-family: 'Open Sans';
 	font-weight: 800;
-	position: absolute;
-	top: 0px;
 	width: 100%;
-}
 
-#clock {
-	background-color: white;
-	height: 100%;
-}
+	#clock {
+		background-color: white;
+		height: 100%;
 
-#timer {
-	color: white;
-	text-align: left;
-	float: left;
-	height: 100%;
-}
+		#timer {
+			color: white;
+			text-align: left;
+			float: left;
+			height: 100%;
 
-#timer span {
-	margin-left: 5px;
-	margin-right: 5px;
+			span {
+				margin-left: 5px;
+				margin-right: 5px;
+			}
+		}
+	}
+
+	#shadow {
+		height: 0.15em;
+		width: 100%;
+		background-color: black;
+		top: 2em;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+		filter: alpha(opacity=40);
+		-moz-opacity: 0.4;
+		-khtml-opacity: 0.4;
+		opacity: 0.4;
+	}
 }
 
 .dontdo #timer {
@@ -35,35 +45,27 @@
 	background-color: #ff2f53;
 }
 
-#shadow {
-	height: 0.15em;
-	width: 100%;
-	background-color: black;
-	position: absolute;
-	top: 2em;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
-	filter: alpha(opacity=40);
-	-moz-opacity: 0.4;
-	-khtml-opacity: 0.4;
-	opacity: 0.4;
-}
-
 /* task */
 
 .task {
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	text-align: center;
+	.centered {
+		width: 920px;
+		margin: 0 auto;
+
+		#compleated {
+			font-size: 1.5em;
+		}
+	}
 }
 
-.task.dodo {
-	background-color: #009d9b;
-}
 
-.task.dontdo {
-	background-color: #ff2f53;
-}
+// .task.dodo {
+// 	background-color: #009d9b;
+// }
+
+// .task.dontdo {
+// 	background-color: #ff2f53;
+// }
 
 #task {
 	position: relative;
@@ -138,69 +140,6 @@
 	margin: 0.5em 0;
 }
 
-/* compelted widget */
-
-#compleated {
-	height: 4em;
-	width: auto;
-	position: absolute;
-	top: 1.5em;
-	right: 0em;
-}
-
-.cen {
-	min-height: 4em;
-	display: inline-block;
-	margin-right: 0.5em;
-}
-
-#compleated .cen p {
-	display: inline-block;
-	color: white;
-	font-size: 1em;
-	line-height: 1.1em;
-	font-weight: 800;
-	text-align: right;
-	vertical-align: middle;
-	margin: 0;
-}
-
-#compleated a {
-	vertical-align: middle;
-	display: inline-block;
-	background-size: 100% 100%;
-}
-
-.dodo .yes {
-	background: url("/assets/mustdo_yes_success_button.png") no-repeat;
-	height: 4em;
-	width: 4em;
-}
-
-.dodo .no {
-	background-image: url("/assets/mustdo_no_fail_button.png");
-	width: 3em;
-	height: 3em;
-	position: relative;
-	left: -1em;
-}
-
-.dontdo .yes {
-	background-image: url("/assets/dontdo_no_success_button.png");
-	height: 4em;
-	width: 4em;
-}
-
-.dontdo .no {
-	background-image: url("/assets/dontdo_yes_fail_button.png");
-	width: 3em;
-	height: 3em;
-	position: relative;
-	left: -1em;
-}
-
-
-
 /* buttons */
 
 .buttons {
@@ -255,18 +194,4 @@
 
 .dodo.completed_false textarea, .dontdo.completed_true textarea {
 	font-size: 3.5em;
-}
-
-.task .historyicon {
-	width: 1.5em;
-	height: 1.5em;
-	background: url("history_task_button.png");
-	background-size: 200%;
-	position: absolute;
-	top: 2.5em;
-	left: 0.5em;
-}
-
-.task .historyicon:hover {
-	background-position: 100% 0;
 }

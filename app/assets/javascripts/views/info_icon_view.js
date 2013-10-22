@@ -1,14 +1,15 @@
 FF.InfoIconView = Em.View.extend({
 	tagName: "a",
 	classNames: ["infoicon"],
-	
+	template: Ember.Handlebars.compile('About'),
+
 	click: function() {
 		var infoView = Em.View.create({
 			templateName: "info",
 			didInsertElement: function() {
 				//Twitter widgets Init
 				!function(d,s,id){
-					var js,fjs=d.getElementsByTagName(s)[0];			
+					var js,fjs=d.getElementsByTagName(s)[0];
 					js=d.createElement(s);
 					js.id=id;
 					js.src="//platform.twitter.com/widgets.js";

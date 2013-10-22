@@ -1,3 +1,7 @@
+.fancybox-overlay {
+	overflow: hidden;
+}
+
 .info {
 	font-weight: normal;
 	font-size: 15px;
@@ -10,7 +14,7 @@
 }
 
 .info strong {
-	font-weight: 700;	
+	font-weight: 700;
 }
 
 .info .left {
