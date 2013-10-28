@@ -8,14 +8,12 @@
 <div class="centered">
 
 	{{#if completable}}
-		<div id="compleated">
-			<div class="cen">
-				<p>
-					Today's time is up, did you {{msgCompletable}}?
-				</p>
-			</div>
-			<a {{action completeTask}} class="yes">YES</a>
-			<a {{action rejectTask}} class="no">NO</a>
+		<div id="did-you-complete">
+			<p>
+				<span>Today's time is up, did you {{msgCompletable}}?</span>
+				<a {{action completeTask}} class="button yes color-z">YES</a>
+				<a {{action rejectTask}} class="button no color-y">NO</a>
+			</p>
 		</div>
 	{{/if}}
 
@@ -29,7 +27,7 @@
 			{{view Ember.TextArea valueBinding="msgCompleted" disabled="true" spellcheck="false" class="ending_text"}}
 		{{/unless}}
 
-		<div class="me">- me</div>
+		<div class="me">me</div>
 
 		<div class="buttons">
 			{{#if agreedable}}

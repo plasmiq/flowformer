@@ -45,19 +45,18 @@
 	background-color: #ff2f53;
 }
 
-/* task */
+.centered {
+	margin: 0 20px;
 
-.task {
-	.centered {
-		width: 920px;
-		margin: 0 auto;
-
-		#compleated {
-			font-size: 1.5em;
+	#did-you-complete {
+		color: #009D9B;
+		font-size: 1.3em;
+		a {
+			margin-left: 10px;
+			line-height: 1.5em;
 		}
 	}
 }
-
 
 // .task.dodo {
 // 	background-color: #009d9b;
@@ -69,36 +68,49 @@
 
 #task {
 	position: relative;
-	width: 75%;
 	margin: 0 auto;
-	margin-top: 170px;
-}
+	margin-top: 50px;
 
-.quote {
-	background-image: url("/assets/quotemark.png");
-	height: 42px;
-	width: 53px;
-	position: absolute;
-	top: 0px;
-	left: -65px;
-}
+	.quote {
+		background-image: url("/assets/quotemark.png");
+		height: 42px;
+		width: 53px;
+		position: absolute;
+		top: -15px;
+		left: -70px;
+	}
 
-.task textarea {
-	display: block;
-	font-family: "Open Sans";
-	font-weight: 800;
-	background-color: inherit;
-	border: 0px;
-	color: white;
-	resize: none;
-	overflow: hidden;
-	outline: none;
-	font-size: 2.2em;
-	line-height: 1.15em;
-	height: 1em;
-	width: 100%;
-}
+	textarea {
+		display: block;
+		font-family: "Open Sans";
+		font-weight: 800;
+		background-color: inherit;
+		border: 0px;
+		color: white;
+		resize: none;
+		overflow: hidden;
+		outline: none;
+		font-size: 2.2em;
+		line-height: 1.15em;
+		height: 1em;
+		width: 100%;
+	}
 
+	.me {
+		font-size: 1.5em;
+		font-family: "Open Sans";
+		font-weight: 600;
+		font-style: italic;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+		filter: alpha(opacity=40);
+		-moz-opacity: 0.4;
+		-khtml-opacity: 0.4;
+		opacity: 0.4;
+		color: white;
+		text-align: left;
+		margin: 0.5em 0;
+	}
+}
 
 ::-webkit-input-placeholder {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=15)";
@@ -125,20 +137,7 @@
 	opacity: 0.15;
 }
 
-.me {
-	font-size: 1.5em;
-	font-family: "Open Sans";
-	font-weight: 600;
-	font-style: italic;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
-	filter: alpha(opacity=40);
-	-moz-opacity: 0.4;
-	-khtml-opacity: 0.4;
-	opacity: 0.4;
-	color: white;
-	text-align: left;
-	margin: 0.5em 0;
-}
+
 
 /* buttons */
 
@@ -146,13 +145,6 @@
 	font-size: 3em;
 	width: 100%;
 	text-align: center;
-}
-
-.button {
-	clear: both;
-	height: 61px;
-	display: block;
-	margin: 0 auto;
 }
 
 .agree_button {
