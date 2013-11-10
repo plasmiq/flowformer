@@ -1,17 +1,13 @@
-<a {{action createDoTask}} id="top" class="container">
-	<div class="vertical">
-		<img src="/assets/action_button.png"/>
-		<span>MUST DO</span>
-	</div>
-</a>
+<h2>Hello <input type="text" value="chrmod"></input>, today will be over in 8:12:34</h2>
+<h3>Quickly, choose what will form your focus until tomorrow:</h3>
 
-{{view FF.FooterView id="footer"}}
-<a {{action gotoTaskHistory}} class="historyicon"></a>
-{{view FF.InfoIconView}}
+<div {{action createDoTask}} class="big-button color-z">
+	MUST DO
+</div>
 
-<a {{action createDontTask}} id="bottom" class="container">
-	<div class="vertical">
-		<img src="/assets/action_button.png"/>
-		<span>DONT DO</span>
-	</div>
-</a>
+<br/>
+<br/>
+
+<div {{action createDontTask}} class="big-button color-y">
+	DONT DO
+</div>
