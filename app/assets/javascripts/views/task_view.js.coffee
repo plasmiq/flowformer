@@ -1,5 +1,6 @@
 @FF.TaskView = Ember.View.extend
     templateName: "task"
+    classNames: ["task"]
     classNameBindings: ["is100","completed",'controller.task_type']
 
     is100: (->
