@@ -5,6 +5,9 @@ FF.Router = Ember.Router.extend
     welcome: Ember.Route.extend
       route: '/'
 
+      enter: (router) ->
+        router.get("applicationController").startTicking()
+
       createDoTask: (router) ->
         task = FF.DoTask.createRecord()
         @_createTask(router,task)
