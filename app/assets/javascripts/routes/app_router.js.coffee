@@ -27,7 +27,7 @@ FF.Router = Ember.Router.extend
         router.transitionTo('taskHistory')
 
       connectOutlets: (router) ->
-        router.get("applicationController").connectOutlet("Welcome")
+        router.get("applicationController").connectOutlet("welcome")
 
 
     task: Ember.Route.extend
