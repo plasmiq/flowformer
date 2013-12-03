@@ -6,7 +6,12 @@ FF.Router = Ember.Router.extend
       route: '/'
 
       enter: (router) ->
+        currentUser = FF.CurrentUser.findOrInitialize()
+        router.get("applicationController").set("currentUser", currentUser)
         router.get("applicationController").startTicking()
+
+      exit: (router) ->
+        router.get("store").commit()
 
       createDoTask: (router) ->
         task = FF.DoTask.createRecord()

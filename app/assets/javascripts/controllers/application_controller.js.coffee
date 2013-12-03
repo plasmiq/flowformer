@@ -1,6 +1,6 @@
 FF.ApplicationController = Ember.ObjectController.extend
 	timeLeft: null
-	currentUserName: null
+	currentUser: null
 
 	isSameDay: (day1,day2) ->
 		day1.year() == day2.year() &&
