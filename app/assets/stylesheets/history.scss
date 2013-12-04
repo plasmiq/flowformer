@@ -1,6 +1,6 @@
 .task_history {
   font-size: 24pt;
-  background-color: #000;
+
   &.task_selected_dodo {
     background-color: #009d9b;
     .details {
@@ -14,26 +14,9 @@
     }
   }
 }
-.belt {
-  margin-bottom: 0.2em;
-  a.home {
-    width: 1em;
-    height: 1em;
-    background: url("home_button.png") 0 0;
-    background-size: 220%;
-    display: inline-block;
-    overflow: hidden;
-    margin-right: 0.25em;
-  }
-
-  a.home:hover {
-    background-position: 90% 220%;
-  }
-}
 
 .history {
-	background-color: black;
-  height: 100%;
+  overflow: hidden;
 	width: 100%;
 	position: relative;
 	color: white;
@@ -41,9 +24,7 @@
   .calendar {
     width: 50%;
     float: left;
-    height: 100%;
     position: relative;
-    background-color: #000;
     .calendar_wrapper {
       padding-top: 0.5em;
       padding-left: 0.5em;
@@ -52,7 +33,6 @@
 
   .details {
     width: 45%;
-    height: 100%;
     float: right;
     .details_wrapper {
       padding-top: 5em;
@@ -109,6 +89,10 @@
   .month {
     width: 50%;
     float: left;
+    font-family: 'Open Sans';
+    text-transform: uppercase;
+
+    font-weight: 800;
 
     .select-month {
       font-size: 1.0em;
@@ -126,6 +110,7 @@
 
     .name {
       font-size: 0.8em;
+      font-style: italic;
     }
 
     .content {
@@ -134,7 +119,8 @@
   }
 
   .month-view {
-    margin-bottom: 0px;
+    margin-bottom: 3px;
+    overflow: hidden;
     a {
       display: block;
       float: left;
@@ -182,117 +168,117 @@
   }
 }
 
-@media all and (max-width: 360px) {
-  .task_history {
-    font-size: 16pt;
-  }
-  .history {
-    .calendar {
-      .month {
-        .month-content {
-          width: 300px;
-        }
-      }
-    }
-  }
-}
+// @media all and (max-width: 360px) {
+//   .task_history {
+//     font-size: 16pt;
+//   }
+//   .history {
+//     .calendar {
+//       .month {
+//         .month-content {
+//           width: 300px;
+//         }
+//       }
+//     }
+//   }
+// }
 
-@media all and (max-width: 980px) {
-  .history {
-    .calendar {
-      height: auto;
-      width: 100%;
-      padding-left: 0;
-      padding-bottom: 0.5em;
-      .month {
-        .month-content {
-          width: 300px;
-        }
-      }
-    }
-    .details {
-      width: 100%;
-      height: auto;
-      clear: both;
-      margin-top: 0.5em;
-      padding-top: 1em;
-      padding-bottom: 0em;
-      .details_wrapper {
-        padding-top: 0;
-      }
-    }
+// @media all and (max-width: 980px) {
+//   .history {
+//     .calendar {
+//       height: auto;
+//       width: 100%;
+//       padding-left: 0;
+//       padding-bottom: 0.5em;
+//       .month {
+//         .month-content {
+//           width: 300px;
+//         }
+//       }
+//     }
+//     .details {
+//       width: 100%;
+//       height: auto;
+//       clear: both;
+//       margin-top: 0.5em;
+//       padding-top: 1em;
+//       padding-bottom: 0em;
+//       .details_wrapper {
+//         padding-top: 0;
+//       }
+//     }
 
-    .month {
-      text-align: center;
-      .month-content {
-        margin: auto;
-        text-align: left;
-        width: 260px;
-      }
-    }
-  }
-}
+//     .month {
+//       text-align: center;
+//       .month-content {
+//         margin: auto;
+//         text-align: left;
+//         width: 260px;
+//       }
+//     }
+//   }
+// }
 
-@media all and (max-width: 650px) {
-  .history {
-    .calendar {
-      .month.prev {
-        display: none;
-      }
+// @media all and (max-width: 650px) {
+//   .history {
+//     .calendar {
+//       .month.prev {
+//         display: none;
+//       }
 
-      .month.current {
-        width: 100%;
-        .select-month.prev {
-          display: block;
-          float: left;
-        }
-      }
-    }
-  }
-  .history .calendar .month-view .day-name {
-    float: left;
-    width: 50px;
-  }
-}
+//       .month.current {
+//         width: 100%;
+//         .select-month.prev {
+//           display: block;
+//           float: left;
+//         }
+//       }
+//     }
+//   }
+//   .history .calendar .month-view .day-name {
+//     float: left;
+//     width: 50px;
+//   }
+// }
 
-@media all and (max-width: 560px) {
-  .task_history {
-    font-size: 22pt;
-  }
-  .history {
-    .details {
-      .content {
-        .subcontent {
-          .text {
-            font-size: 1.2em;
-          }
-          .me {
-            font-size: 1em;
-          }
-          .completed-at {
-            font-size: 0.9em;
-          }
-        }
-      }
-    }
-  }
-}
+// @media all and (max-width: 560px) {
+//   .task_history {
+//     font-size: 22pt;
+//   }
+//   .history {
+//     .details {
+//       .content {
+//         .subcontent {
+//           .text {
+//             font-size: 1.2em;
+//           }
+//           .me {
+//             font-size: 1em;
+//           }
+//           .completed-at {
+//             font-size: 0.9em;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
-@media all and (max-width: 420px) {
-  .task_history {
-    font-size: 21pt;
-  }
-}
+// @media all and (max-width: 420px) {
+//   .task_history {
+//     font-size: 21pt;
+//   }
+// }
 
 
-@media all and (max-width: 360px) {
-  .history {
-    .calendar {
-      .month {
-        .month-content {
-          width: 290px;
-        }
-      }
-    }
-  }
-}
+// @media all and (max-width: 360px) {
+//   .history {
+//     .calendar {
+//       .month {
+//         .month-content {
+//           width: 290px;
+//         }
+//       }
+//     }
+//   }
+// }
