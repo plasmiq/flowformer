@@ -2,15 +2,11 @@
   <div class='calendar'>
     <div class='calendar_wrapper'>
       <div class='calendar_wrapper'>
-        <div class="belt">
-          <a {{action gotoHome}} class="home"></a>
-          <a {{action gotoHome}}>Home</a>
-        </div>
         <div class='month prev'>
           <div class='month-content'>
             <a {{action selectPrevMonth}} class='select-month prev'><</a>
             <div class='content'>
-              <div class='name'>{{humanPrevMonth}} {{prevYear}}</div>
+              <div class='name'>{{humanPrevMonth}}</div>
               {{view FF.TaskHistoryMonthView contentBinding="previousMonthTasks"}}
             </div>
             <div class='clearfix'></div>
@@ -20,7 +16,7 @@
           <div class='month-content'>
             <a class='select-month prev' {{action selectPrevMonth}}><</a>
             <div class='content'>
-              <div class='name'>{{humanCurrentMonth}} {{currentYear}}</div>
+              <div class='name'>{{humanCurrentMonth}}</div>
               {{view FF.TaskHistoryMonthView contentBinding="currentMonthTasks"}}
             </div>
             <a {{action selectNextMonth}} class='select-month next'>></a>
