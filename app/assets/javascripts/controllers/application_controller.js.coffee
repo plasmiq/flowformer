@@ -1,5 +1,6 @@
 FF.ApplicationController = Ember.ObjectController.extend
 	currentUser: null
+	timeLeft: null
 
 	isSameDay: (day1,day2) ->
 		day1.year() == day2.year() &&
@@ -8,6 +9,18 @@ FF.ApplicationController = Ember.ObjectController.extend
 
 
 	startTicking: ->
+		current_time = moment()
+		task_creation_time = moment( @get("created_at") )
+		end_of_day_time = moment().endOf("day")
+
+		unless @isSameDay(current_time, task_creation_time)
+			@set("timeLeft", 0 )
+			return
+
+		diffMs = (end_of_day_time - current_time); # milliseconds between now & end of day
+		diffMs = 0 if diffMs < 0
+
+		@set("timeLeft", diffMs )
 		@notifyPropertyChange("untilMidnight")
 		setTimeout @startTicking.bind(@), 1000  # 1 second
 
@@ -38,6 +51,14 @@ FF.ApplicationController = Ember.ObjectController.extend
   ).property()
 
 	clock: (->
+		text = moment.utc( @get("timeLeft") ).format("HH:mm:ss")
+		if @get("completable") || @get("content").isCompleted()
+			text = "MUST DO COMPLETE!" if @get("task_type") == "dodo"
+			text = "DONT DO COMPLETE!" if @get("task_type") == "dontdo"
+		text
+	).property("completable", "hoursLeft")
+
+	timer: (->
 		moment.utc( @get("untilMidnight") ).format("HH:mm:ss")
 	).property("untilMidnight")
 
