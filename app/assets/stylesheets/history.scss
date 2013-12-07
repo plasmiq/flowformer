@@ -22,13 +22,11 @@
 	color: white;
 
   .calendar {
-    width: 50%;
+    width: 60%;
     float: left;
     position: relative;
-    .calendar_wrapper {
-      padding-top: 0.5em;
-      padding-left: 0.5em;
-    }
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
 
   .details {
@@ -48,6 +46,7 @@
     }
     .content {
       float: left;
+
       .subcontent {
         border-bottom: 2px solid #fff;
         font-size: 0.8em;
@@ -97,11 +96,15 @@
     .select-month {
       font-size: 1.0em;
       float: left;
+      cursor: pointer;
+      margin-top: -6px;
+      color: #8F8F8F !important;
+
       &.prev {
-        margin-right: 0.5em;
+        margin-right: 1em;
       }
       &.next {
-        margin-left: 0.5em;
+        margin-left: 1em;
       }
     }
     &.current .select-month.prev {
@@ -111,10 +114,12 @@
     .name {
       font-size: 0.8em;
       font-style: italic;
+      color: #DFDFDF;
     }
 
     .content {
       float: left;
+      padding: 0px !important;
     }
   }
 
@@ -159,11 +164,12 @@
 
     .day-name {
       width: 40px;
-      font-size: 0.5em;
+      font-size: 0.45em;
       text-align: left;
       margin-top: 0.5em;
       margin-bottom: 0.3em;
       display: block;
+      color: #A9A9A9;
     }
   }
 }
