@@ -25,7 +25,7 @@ FF.ApplicationController = Ember.ObjectController.extend
 		setTimeout @startTicking.bind(@), 1000  # 1 second
 
 	hoursLeft: (->
-		moment.utc( @get("untilMidnight") ).format("HH")
+		moment.utc( @get("timeLeft") ).format("HH")
 	).property("timeLeft")
 
 	isConfirmed: (->
