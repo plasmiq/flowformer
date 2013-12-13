@@ -163,8 +163,6 @@
 			}
 		}
 
-		#did-you-complete {
-		}
 
 		.buttons {
 			.button {
@@ -180,6 +178,19 @@
 				background-color: $dont-color;
 			}
 		}
+
+		#task {
+			textarea {
+				color: $dont-color;
+			}
+		}
+
+		.buttons {
+			.button {
+				background-color: $dont-color;
+			}
+		}
+
 	}
 
 }

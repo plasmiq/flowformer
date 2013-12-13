@@ -74,6 +74,7 @@ body.freedom .wrapper menu a:hover {
   padding: 0 15px;
   text-decoration: none;
   color: white;
+  cursor: pointer;
   opacity: 0.45;
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=(45));
   filter: alpha(opacity = (45));
@@ -136,6 +137,7 @@ body.freedom .wrapper .content a:visited,
 body.freedom .wrapper .content a:hover {
   text-decoration: none;
   color: #217473;
+  cursor: pointer;
 }
 body.freedom .wrapper .content a.button,
 body.freedom .wrapper .content a:visited.button,

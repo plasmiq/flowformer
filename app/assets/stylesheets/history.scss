@@ -1,18 +1,18 @@
 .task_history {
   font-size: 24pt;
 
-  &.task_selected_dodo {
-    background-color: #009d9b;
-    .details {
-      background-color: #009d9b;
-    }
-  }
-  &.task_selected_dontdo {
-    background-color: #ff2f53;
-    .details {
-      background-color: #ff2f53;
-    }
-  }
+  // &.task_selected_dodo {
+  //   background-color: #009d9b;
+  //   .details {
+  //     background-color: #009d9b;
+  //   }
+  // }
+  // &.task_selected_dontdo {
+  //   background-color: #ff2f53;
+  //   .details {
+  //     background-color: #ff2f53;
+  //   }
+  // }
 }
 
 .history {
@@ -30,7 +30,7 @@
   }
 
   .details {
-    width: 45%;
+    width: 40%;
     float: right;
     .details_wrapper {
       padding-top: 5em;
@@ -148,7 +148,7 @@
     }
 
     a.smile {
-      color: #fff;
+      color: #fff !important;
       text-align: center;
     }
 
