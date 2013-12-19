@@ -5,6 +5,14 @@ FF.Router = Ember.Router.extend
     welcome: Ember.Route.extend
       route: '/'
 
+      enter: (router) ->
+        currentUser = FF.CurrentUser.findOrInitialize()
+        router.get("applicationController").set("currentUser", currentUser)
+        router.get("applicationController").startTicking()
+
+      exit: (router) ->
+        router.get("store").commit()
+
       createDoTask: (router) ->
         task = FF.DoTask.createRecord()
         @_createTask(router,task)
@@ -24,7 +32,7 @@ FF.Router = Ember.Router.extend
         router.transitionTo('taskHistory')
 
       connectOutlets: (router) ->
-        router.get("applicationController").connectOutlet("Welcome")
+        router.get("applicationController").connectOutlet("welcome")
 
 
     task: Ember.Route.extend

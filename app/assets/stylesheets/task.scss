@@ -1,0 +1,196 @@
+.task {
+	$do-color: #009D9B;
+	$do-dark-color: #153434;
+	$do-light-color: #135E5D;
+	$dont-color: #FF2F53;
+	$dont-dark-color: #481E25;
+	$dont-light-color: #942637;
+
+	color: white;
+
+	#header {
+		height: 2em;
+		line-height: 2em;
+		font-size: 1.3em;
+		color: red;
+		font-family: 'Open Sans';
+		font-weight: 800;
+		width: 100%;
+
+		#clock {
+			margin-top: 25px;
+			height: 100%;
+
+			#timer {
+				color: white;
+				text-align: left;
+				float: left;
+				height: 100%;
+
+				span {
+					margin-left: 5px;
+					margin-right: 5px;
+				}
+			}
+		}
+
+		#shadow {
+			height: 0.15em;
+			width: 100%;
+			background-color: black;
+			top: 2em;
+			-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+			filter: alpha(opacity=40);
+			-moz-opacity: 0.4;
+			-khtml-opacity: 0.4;
+			opacity: 0.4;
+		}
+	}
+
+	.centered {
+		margin: 0 20px;
+
+		#did-you-complete {
+			font-size: 1.3em;
+			a {
+				margin-left: 10px;
+				line-height: 1.5em;
+			}
+		}
+	}
+
+	#task {
+		position: relative;
+		margin: 0 auto;
+		margin-top: 80px;
+
+		.quote {
+			background-image: url("/assets/quotemark.png");
+			height: 42px;
+			width: 53px;
+			position: absolute;
+			top: -15px;
+			left: -70px;
+		}
+
+		textarea {
+			display: block;
+			font-family: "Open Sans";
+			font-weight: 800;
+			background-color: inherit;
+			border: 0px;
+			resize: none;
+			overflow: hidden;
+			outline: none;
+			font-size: 5em;
+			line-height: 1.15em;
+			height: 1em;
+			width: 100%;
+			font-style: italic;
+		}
+
+		.me {
+			font-size: 3em;
+			font-family: "Open Sans";
+			font-weight: 600;
+			font-style: italic;
+			-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+			filter: alpha(opacity=40);
+			-moz-opacity: 0.4;
+			-khtml-opacity: 0.4;
+			opacity: 0.4;
+			text-align: left;
+			margin: 0.5em 0;
+		}
+	}
+
+	::-webkit-input-placeholder {
+		color: #474747;
+	}
+
+	:-ms-input-placeholder {
+		color: #474747;
+	}
+
+	:-moz-placeholder {
+		color: #474747;
+	}
+
+	::-moz-placeholder {
+		color: #474747;
+	}
+
+	/* buttons */
+
+	.buttons {
+		font-size: 2.3em;
+		margin-top: 30px;
+		.button {
+			padding-left: 1.9em;
+			padding-right: 1.9em;
+		}
+	}
+
+	/* completed */
+
+	.is100 #timer {
+		width: 100%;
+	}
+
+	&.completed_true, &.completed_false {
+		#task {
+			textarea {
+				font-size: 13em;
+			}
+			.quote {
+				top: 5px;
+			}
+		}
+	}
+
+	&.dodo {
+		color: $do-color;
+		#clock {
+			background-color: $do-dark-color;
+			#timer {
+				background-color: $do-color;
+			}
+		}
+
+		#task {
+			textarea {
+				color: $do-color;
+			}
+		}
+
+
+		.buttons {
+			.button {
+				background-color: $do-color;
+			}
+		}
+	}
+
+	&.dontdo {
+		#clock {
+			background-color: $dont-dark-color;
+			#timer {
+				background-color: $dont-color;
+			}
+		}
+
+		#task {
+			textarea {
+				color: $dont-color;
+			}
+		}
+
+		.buttons {
+			.button {
+				background-color: $dont-color;
+			}
+		}
+
+	}
+
+}

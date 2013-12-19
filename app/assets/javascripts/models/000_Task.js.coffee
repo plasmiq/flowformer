@@ -18,6 +18,11 @@ FF.Task = DS.Model.extend
     isStarted: ->
         !Em.none @get("created_at")
 
+    isActive: (->
+      now = moment()
+      now.diff( @get('created_at'), 'days') < 1
+    ).property('created_at')
+
     msgCompletable: (->
         if @get("task_type") == "dodo"
             "succeed"
@@ -28,9 +33,9 @@ FF.Task = DS.Model.extend
     msgCompleted: (->
         completed = (@get("completed") == "true")
         if(completed)
-            "Well done!"
+            "Nice!"
         else
-            "Next time?"
+            "WTF?"
     ).property()
 
     smile: (->
@@ -39,7 +44,7 @@ FF.Task = DS.Model.extend
       else
         ':('
     ).property()
-    
+
 
 FF.Task.reopenClass
     findAllTasks: ->
@@ -70,7 +75,7 @@ FF.Task.reopenClass
 
       $.each(FF.Task.findAllTasks(), (index, task)->
         date = task.get('completed_at')
-        if(date) 
+        if(date)
           if(date.getFullYear() == year && date.getMonth() == month)
             for i in [0..5]
               for j in [0..6]

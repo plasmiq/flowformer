@@ -1,4 +1,5 @@
 FF.ApplicationController = Ember.ObjectController.extend
+	currentUser: null
 	timeLeft: null
 
 	isSameDay: (day1,day2) ->
@@ -10,19 +11,20 @@ FF.ApplicationController = Ember.ObjectController.extend
 	startTicking: ->
 		current_time = moment()
 		task_creation_time = moment( @get("created_at") )
-		end_of_day_time = moment().endOf("day")		
+		end_of_day_time = moment().endOf("day")
 
 		unless @isSameDay(current_time, task_creation_time)
-			@set("timeLeft",  0 ) 
+			@set("timeLeft", 0 )
 			return
-		
+
 		diffMs = (end_of_day_time - current_time); # milliseconds between now & end of day
 		diffMs = 0 if diffMs < 0
 
-		@set("timeLeft",  diffMs ) 
+		@set("timeLeft", diffMs )
+		@notifyPropertyChange("untilMidnight")
 		setTimeout @startTicking.bind(@), 1000  # 1 second
 
-	hoursLeft: (->	
+	hoursLeft: (->
 		moment.utc( @get("timeLeft") ).format("HH")
 	).property("timeLeft")
 
@@ -38,18 +40,31 @@ FF.ApplicationController = Ember.ObjectController.extend
 		@get("created_at") && @get("timeLeft") == 0 && ! @get("content").isCompleted()
 	).property("created_at","completed","timeLeft")
 
+	untilMidnight: (->
+		untilMidnight = new Date();
+		now = untilMidnight.getTime();
+		untilMidnight.setHours( 24 );
+		untilMidnight.setMinutes( 0 );
+		untilMidnight.setSeconds( 0 );
+		untilMidnight.setMilliseconds( 0 );
+		untilMidnight - now
+  ).property()
+
 	clock: (->
-		text =  moment.utc( @get("timeLeft") ).format("HH:mm:ss")
- 			
+		text = moment.utc( @get("timeLeft") ).format("HH:mm:ss")
 		if @get("completable") || @get("content").isCompleted()
 			text = "MUST DO COMPLETE!" if @get("task_type") == "dodo"
 			text = "DONT DO COMPLETE!" if @get("task_type") == "dontdo"
 		text
 	).property("completable", "hoursLeft")
 
+	timer: (->
+		moment.utc( @get("untilMidnight") ).format("HH:mm:ss")
+	).property("untilMidnight")
+
 	placeholder: (->
-		if(@get("task_type") == "dodo") 
-			"Enter a single thing you must do within 24 hours."
+		if(@get("task_type") == "dodo")
+			"Type one thing you're to do before tomorrow."
 		else
-			"Enter a single thing you're not to do for 24 hours."
+			"Type one thing you're not to do before tomorrow."
 	).property("task_type")

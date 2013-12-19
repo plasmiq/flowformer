@@ -1,46 +1,43 @@
 <div id="header">
 	<div id="clock">
-		<div id="timer" {{bindAttr style="view.progress"}}><span>{{clock}}</span></div>
-	</div>
-	<div id="shadow"></div>
+    <div id="timer" {{bindAttr style="view.progress"}}><span>{{clock}}</span></div>
+  </div>
+  <div id="shadow"></div>
 </div>
 
-<div id="task">
-	<span class="quote"></span>
+<div class="centered">
 
-	{{#unless completed}}
-		{{view Ember.TextArea valueBinding="text" placeholderBinding="placeholder" tabindex="1" disabledBinding="isConfirmed" spellcheck="false"}}
-	{{else}}
-		{{view Ember.TextArea valueBinding="msgCompleted" disabled="true" spellcheck="false" class="ending_text"}}
-	{{/unless}}
-
-	<div class="me">- me</div>
-
-	<div class="buttons">
-		{{#if agreedable}}
-			<a {{action confirmTask}} class="agree_button button"></a>
-		{{/if}}
-
-		{{#if completed}}
-			<a {{action startAgain}} class="welldone_button button"></a>
-		{{/if}}
-	</div>
-
-</div>
-
-{{#if completable}}
-	<div id="compleated">
-		<div class="cen">
+	{{#if completable}}
+		<div id="did-you-complete">
 			<p>
-				You had 24 hrs.<br/>
-				Did you {{msgCompletable}}?
+				<span>Today's time is up, did you {{msgCompletable}}?</span>
+				<a {{action completeTask}} class="button yes color-z">YES</a>
+				<a {{action rejectTask}} class="button no color-y">NO</a>
 			</p>
 		</div>
-		<a {{action completeTask}} class="yes"></a>
-		<a {{action rejectTask}} class="no"></a>
+	{{/if}}
+
+	<div id="task">
+		<span class="quote"></span>
+
+		{{#unless completed}}
+			{{view Ember.TextArea valueBinding="text" placeholderBinding="placeholder" tabindex="1" disabledBinding="isConfirmed" spellcheck="false"}}
+		{{else}}
+			{{view Ember.TextArea valueBinding="msgCompleted" disabled="true" spellcheck="false" class="ending_text"}}
+		{{/unless}}
+
+		<div class="me">me</div>
+
+		<div class="buttons">
+			{{#if agreedable}}
+				<a {{action confirmTask}} class="button">OK</a>
+			{{/if}}
+
+			{{#if completed}}
+				<a {{action startAgain}} class="button">RETURN HOME</a>
+			{{/if}}
+		</div>
+
 	</div>
-{{/if}}
 
-{{view FF.FooterView class="with_logo" id="footer"}}
-
-<a {{action gotoTaskHistory}} class="historyicon"></a>
+</div>

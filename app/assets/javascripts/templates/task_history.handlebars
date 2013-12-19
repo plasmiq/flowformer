@@ -1,32 +1,25 @@
 <div {{bindAttr class=":task_history cssClass"}}>
   <div class='calendar'>
-    <div class='calendar_wrapper'>
-      <div class='calendar_wrapper'>
-        <div class="belt">
-          <a {{action gotoHome}} class="home"></a>
-          <a {{action gotoHome}}>Home</a>
+
+    <div class='month prev'>
+      <div class='month-content'>
+        <a {{action selectPrevMonth}} class='select-month prev'><i class="fa fa-angle-left"></i></a>
+        <div class='content'>
+          <div class='name'>{{humanPrevMonth}}</div>
+          {{view FF.TaskHistoryMonthView contentBinding="previousMonthTasks"}}
         </div>
-        <div class='month prev'>
-          <div class='month-content'>
-            <a {{action selectPrevMonth}} class='select-month prev'><</a>
-            <div class='content'>
-              <div class='name'>{{humanPrevMonth}} {{prevYear}}</div>
-              {{view FF.TaskHistoryMonthView contentBinding="previousMonthTasks"}}
-            </div>
-            <div class='clearfix'></div>
-          </div>
+        <div class='clearfix'></div>
+      </div>
+    </div>
+
+    <div class='month current'>
+      <div class='month-content'>
+        <a class='select-month prev' {{action selectPrevMonth}}><</a>
+        <div class='content'>
+          <div class='name'>{{humanCurrentMonth}}</div>
+          {{view FF.TaskHistoryMonthView contentBinding="currentMonthTasks"}}
         </div>
-        <div class='month current'>
-          <div class='month-content'>
-            <a class='select-month prev' {{action selectPrevMonth}}><</a>
-            <div class='content'>
-              <div class='name'>{{humanCurrentMonth}} {{currentYear}}</div>
-              {{view FF.TaskHistoryMonthView contentBinding="currentMonthTasks"}}
-            </div>
-            <a {{action selectNextMonth}} class='select-month next'>></a>
-            <div class='clearfix'></div>
-          </div>
-        </div>
+        <a {{action selectNextMonth}} class='select-month next'><i class="fa fa-angle-right"></i></a>
         <div class='clearfix'></div>
       </div>
     </div>

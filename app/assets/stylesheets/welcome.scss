@@ -1,4 +1,32 @@
-.container {
+.welcome {
+	padding-bottom: 80px;
+
+	h2, h3 {
+		text-align: center;
+	}
+	h2 {
+		font-weight: 600;
+		color: #DFDFDF;
+		margin: 40px 0 0 0;
+		input {
+			background-color: transparent;
+			border: 0px;
+			color: inherit;
+			font-size: 1em;
+			width: 200px;
+			border-bottom: 1px solid #4C4C4C;
+			text-align: center;
+		}
+	}
+	h3 {
+		margin-top: 10px;
+		font-weight: 300;
+		color: #BCBCBC;
+	}
+}
+
+
+/*.container {
 	width: 100%;
 	position:fixed;
 	text-align:center;
@@ -17,7 +45,7 @@
 	background-color: #00bebe;
 }
 #top .vertical {
-	margin-top: -1.15em;				
+	margin-top: -1.15em;
 }
 #bottom {
 	height: 50%;
@@ -55,7 +83,7 @@
 	height: 38px;
 	background: url("info_button.png");
 	position: absolute;
-	margin-top: -19px;	
+	margin-top: -19px;
 	top: 50%;
 	z-index: 120;
 	right: 20px;
@@ -76,9 +104,9 @@
 	background: url("history_button.png") 0 0;
 	position: absolute;
 	right: 70px;
-	z-index: 120;	
+	z-index: 120;
 }
 
 .welcome .historyicon:hover {
 	background-position: 38px 0;
-}
+}*/

@@ -1,1 +1,19 @@
-{{outlet}}
+<menu>
+  <div class="left">
+    <h1><a href="/">Flowformer</a></h1>
+  </div>
+  <div class="right">
+    <a {{action gotoTaskHistory}}>history</a>
+  </div>
+</menu>
+<div class="content">
+  {{outlet}}
+</div>
+<div class="push"></div>
+<footer>
+  {{view FF.InfoIconView}}
+  <!--
+  <a href="http://plasmiq.com">Feedback</a>
+  -->
+  <a class="right" href="http://plasmiq.com" target="_blank">Powered by Plasmiq</a>
+</footer>

@@ -20,7 +20,7 @@
 
     didInsertElement: (->
         text = document.querySelector("#task textarea")
-        
+
         resize = ->
             onlyPlaceholder = false
 
@@ -28,16 +28,16 @@
                 text.value = text.placeholder
                 onlyPlaceholder = true
 
-            text.style.height = 'auto'; 
+            text.style.height = 'auto';
             text.style.height = text.scrollHeight+'px';
 
             if onlyPlaceholder
-                text.value = "" 
+                text.value = ""
 
 
         observe = (element, event, handler) ->
             element.addEventListener(event, handler, false);
-      
+
         delayedResize = ->
             window.setTimeout(resize, 0);
 

@@ -1,3 +1,4 @@
 FF.ApplicationView = Ember.View.extend({
-  templateName: 'application'
+  templateName: 'application',
+  classNames: ["wrapper"]
 });
