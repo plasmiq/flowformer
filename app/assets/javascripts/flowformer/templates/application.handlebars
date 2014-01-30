@@ -1,2 +1,35 @@
-<h2>Welcome to Ember.js</h2>
-{{outlet}}
+<menu class="pq-menu">
+  <div class="left">
+    <h1><a href="/">freedom</a></h1>
+  </div>
+  <div class="center">
+    <a href="README.md" class="active">about</a>
+    <a href="docs/layout.md" class="">Layout</a>
+    <a href="docs/buttons.md" class="">Buttons</a>
+    <a href="docs/demo.md" class="">Demo</a>
+  </div>
+  <div class="right">
+    <nav class="pq pq-nav-dropdown">
+      <a href="">menu</a>
+      <ul>
+        <li>
+          <a href="http://flowformer.com/">flowformer<i class="fa fa-angle-right"></i></a>
+        </li>
+        <li>
+          <a href="http://timezoneslider.com/">timezoneslider<i class="fa fa-angle-right"></i></a>
+        </li>
+        <li>
+          <a href="http://plasmiq.com/">plasmiq<i class="fa fa-angle-right"></i></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</menu>
+<div class="pq-content">
+  {{outlet}}
+</div>
+ <footer class="pq-footer">
+  <a href="http://plasmiq.com">About</a>
+  <a href="http://plasmiq.com">Feedback</a>
+  <a class="right" href="http://plasmiq.com">Powered by Plasmiq</a>
+</footer>
