@@ -8,6 +8,7 @@ FF = Ember.Application.create();
 
 FF.Router.map(function() {
   // put your routes here
+  this.route("history")
 });
 
 FF.IndexRoute = Ember.Route.extend({

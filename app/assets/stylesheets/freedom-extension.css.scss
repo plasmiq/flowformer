@@ -1,0 +1,8 @@
+.pq-menu {
+  height: 3.375em;
+  .right {
+    & > a, & > nav {
+      float: left;
+    }
+  }
+}
