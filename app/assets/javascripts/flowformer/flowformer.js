@@ -2,19 +2,65 @@
 //= require handlebars
 //= require ember
 //= require ember-data
+//= require ember-localstorage-adapter
 //= require_self
 //= require_tree ./templates
 FF = Ember.Application.create();
 
-FF.Router.map(function() {
-  // put your routes here
-  this.route("history")
+FF.LSAdapter = DS.LSAdapter.extend({
+  namespace: 'FF'
 });
 
-FF.IndexRoute = Ember.Route.extend({
-  model: function() {
-    return ['red', 'yellow', 'blue'];
+FF.ApplicationAdapter = FF.LSAdapter;
+
+FF.Router.map(function() {
+  this.resource('welcome', { path: '/' });
+  this.resource("history");
+  this.resource("task");
+});
+
+FF.CurrentUser = DS.Model.extend({
+  name: DS.attr('string')
+});
+
+FF.Task = DS.Model.extend({
+  task_type: DS.attr('string'),
+  text: DS.attr('string', {defaultValue: ""}),
+  created_at: DS.attr('date'),
+  completed_at: DS.attr('date'),
+  completed: DS.attr('string')
+});
+
+FF.WelcomeRoute = Ember.Route.extend({
+  actions: {
+    createDoTask: function() {
+      this.transitionTo('task');
+    },
+    createDontTask: function() {
+      this.transitionTo('task');
+    }
+  },
+
+  exit: function() {
+    this.get('controller.currentUser').save();
+  },
+
+  setupController: function(controller, model) {
+    this.store.find('currentUser').then( function(users) {
+      var user = users.toArray()[0];
+      if(!user) {
+        user = this.store.createRecord('currentUser');
+      }
+      controller.set('currentUser', user);
+    });
   }
 });
 
-console.log("sss")
+
+FF.WelcomeController = Ember.Controller.extend({
+  currentUser: null
+})
+
+FF.WelcomeView = Ember.View.extend({
+  classNames: ['welcome']
+})

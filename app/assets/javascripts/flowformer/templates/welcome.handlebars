@@ -1,0 +1,19 @@
+<h2>Hello {{view Ember.TextField valueBinding="currentUser.name" }}, today will be over in {{timer}}</h2>
+<h3>Quickly, choose what will form your focus until tomorrow:</h3>
+
+<div {{action createDoTask}} class="pq pq-button-block pq-color-z">
+  MUST DO
+  <span class="icon">
+    <i class="fa fa-check"></i>
+  </span>
+</div>
+
+<br/>
+<br/>
+
+<div {{action createDontTask}} class="pq pq-button-block pq-color-y">
+  DONT DO
+  <span class="icon">
+    <i class="fa fa-times"></i>
+  </span>
+</div>
