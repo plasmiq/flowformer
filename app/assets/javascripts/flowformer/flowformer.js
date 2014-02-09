@@ -25,19 +25,35 @@ FF.CurrentUser = DS.Model.extend({
 });
 
 FF.Task = DS.Model.extend({
-  task_type: DS.attr('string'),
+  type: DS.attr('string'),
   text: DS.attr('string', {defaultValue: ""}),
-  created_at: DS.attr('date'),
-  completed_at: DS.attr('date'),
-  completed: DS.attr('string')
+  createdAt: DS.attr('date'),
+  completedAt: DS.attr('date')
 });
 
 FF.WelcomeRoute = Ember.Route.extend({
   actions: {
     createDoTask: function() {
+      var task = this.store.createRecord('task', {
+        type: 'do',
+        createdAt: new Date()
+      });
+      task.save();
       this.transitionTo('task');
     },
     createDontTask: function() {
+      var task = this.store.createRecord('task', {
+        type: 'dont',
+        createdAt: new Date()
+      });
+      task.save();
+      this.transitionTo('task');
+    }
+  },
+
+  beforeModel: function() {
+    var task = this.modelFor('task');
+    if(task) {
       this.transitionTo('task');
     }
   },
@@ -47,15 +63,35 @@ FF.WelcomeRoute = Ember.Route.extend({
   },
 
   setupController: function(controller, model) {
-    this.store.find('currentUser').then( function(users) {
-      var user = users.toArray()[0];
+    var store = this.store;
+
+    store.find('currentUser').then(function(result) {
+      var user = result.get('content')[0];
       if(!user) {
-        user = this.store.createRecord('currentUser');
+        user = store.createRecord('currentUser');
       }
       controller.set('currentUser', user);
     });
   }
 });
+
+FF.TaskRoute = Ember.Route.extend({
+  model: function() {
+    return this.store.find('task', { completedAt: null }).then(function (result) {
+      var task;
+      if(result) {
+        task = result.get('content')[0];
+      }
+      return task;
+    });
+  },
+
+  afterModel: function(model) {
+    if(!model) {
+      this.transitionTo('welcome');
+    }
+  }
+})
 
 FF.TimeController = Ember.Controller.extend({
 
