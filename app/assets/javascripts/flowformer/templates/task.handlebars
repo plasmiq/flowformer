@@ -33,8 +33,8 @@
     <div class="me">me</div>
 
     <div class="buttons">
-      {{#if agreedable}}
-        <a {{action confirmTask}} class="button">OK</a>
+      {{#if isAgreedable}}
+        <a {{action confirmTask}} class="pq pq-button-inline button">OK</a>
       {{/if}}
 
       {{#if completed}}

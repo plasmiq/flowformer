@@ -7,7 +7,9 @@
 //= require_self
 //= require_tree ./templates
 //= require_tree ./views
-FF = Ember.Application.create();
+FF = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
 
 FF.LSAdapter = DS.LSAdapter.extend({
   namespace: 'FF'
@@ -28,6 +30,7 @@ FF.CurrentUser = DS.Model.extend({
 FF.Task = DS.Model.extend({
   type: DS.attr('string'),
   text: DS.attr('string', {defaultValue: ""}),
+  isConfirmed: DS.attr('boolean'),
   createdAt: DS.attr('date'),
   completedAt: DS.attr('date'),
 
@@ -45,19 +48,16 @@ FF.WelcomeRoute = Ember.Route.extend({
   actions: {
     createDoTask: function() {
       var task = this.store.createRecord('task', {
-        type: 'do',
-        createdAt: new Date()
+        type: 'do'
       });
       task.save();
       this.transitionTo('task');
     },
     createDontTask: function() {
       var task = this.store.createRecord('task', {
-        type: 'dont',
-        createdAt: new Date()
+        type: 'dont'
       });
-      task.save();
-      this.transitionTo('task');
+      this.transitionTo('task', task);
     }
   },
 
@@ -86,6 +86,15 @@ FF.WelcomeRoute = Ember.Route.extend({
 });
 
 FF.TaskRoute = Ember.Route.extend({
+  actions: {
+    confirmTask: function() {
+      var task = this.modelFor('task');
+      task.set('createdAt', new Date());
+      task.set('isConfirmed', true)
+      task.save();
+    }
+  },
+
   model: function() {
     return this.store.find('task', { completedAt: null }).then(function (result) {
       var task;
@@ -146,5 +155,43 @@ FF.TaskController = Ember.ObjectController.extend({
   needs: ['time'],
 
   timerBinding: 'controllers.time.timer',
-  untilMidnightBinding: 'controllers.time.untilMidnight'
+  untilMidnightBinding: 'controllers.time.untilMidnight',
+
+  isAgreedable: function() {
+    return !this.get('isConfirmed') && (this.get('text').length > 3);
+  }.property('text', 'isConfirmed')
+})
+
+Ember.TextArea.reopen({
+  attributeBindings: ['tabindex','autofocus',"spellcheck","rows","maxChars"],
+  didInsertElement: function() {
+    /* Set cursor on end */
+    var temp;
+    temp=$('textarea').val();
+    $('textarea').val('');
+    $('textarea').focus();
+    $('textarea').val(temp);
+  },
+  keyDown: function (e) {
+    if(e.which == 13) {
+      return false
+    }
+  },
+  keyUp: function(e) {
+    var limit = 50;
+    var elem = $('textarea');
+    //get the current text inside the textarea
+    var text = elem.val();
+    //count the number of characters in the text
+    var chars = text.length;
+
+    //check if there are more characters then allowed
+    if(chars > limit){
+      //and if there are use substr to get the text before the limit
+      var new_text = text.substr(0, limit);
+
+      //and change the current text with the new text
+      elem.val(new_text);
+    }
+  }
 })
