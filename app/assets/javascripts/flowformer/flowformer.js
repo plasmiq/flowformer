@@ -27,10 +27,18 @@ FF.CurrentUser = DS.Model.extend({
   name: DS.attr('string')
 });
 
+FF.initializer({
+  name: "preload_active_task",
+  initialize: function(container) {
+    var task = container.lookup('route:task').model();
+    container.lookup('controller:task').set('model',task);
+  }
+});
+
+
 FF.Task = DS.Model.extend({
   type: DS.attr('string'),
   text: DS.attr('string', {defaultValue: ""}),
-  isConfirmed: DS.attr('boolean'),
   createdAt: DS.attr('date'),
   completedAt: DS.attr('date'),
 
@@ -41,6 +49,14 @@ FF.Task = DS.Model.extend({
   isCreatedToday: function() {
     var createdAt = moment(this.get('createdAt'));
     return createdAt.isAfter(moment().startOf('day')) && createdAt.isBefore(moment().endOf('day'))
+  }.property('createdAt'),
+
+  isCompleted: function() {
+    return !Em.isEmpty(this.get('completedAt'));
+  }.property('completedAt'),
+
+  isConfirmed: function() {
+    return !Em.isEmpty(this.get('createdAt'));
   }.property('createdAt')
 });
 
@@ -57,12 +73,13 @@ FF.WelcomeRoute = Ember.Route.extend({
       var task = this.store.createRecord('task', {
         type: 'dont'
       });
-      this.transitionTo('task', task);
+      this.transitionTo('task');
     }
   },
 
   beforeModel: function() {
-    var task = this.modelFor('task');
+    var taskController = this.controllerFor('task'),
+      task = taskController.get('model');
     if(task) {
       this.transitionTo('task');
     }
@@ -90,8 +107,10 @@ FF.TaskRoute = Ember.Route.extend({
     confirmTask: function() {
       var task = this.modelFor('task');
       task.set('createdAt', new Date());
-      task.set('isConfirmed', true)
       task.save();
+    },
+    startAgain: function() {
+      this.transitionTo('welcome');
     }
   },
 
