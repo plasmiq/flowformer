@@ -6,6 +6,7 @@
 //= require ember-localstorage-adapter
 //= require_self
 //= require_tree ./templates
+//= require_tree ./views
 FF = Ember.Application.create();
 
 FF.LSAdapter = DS.LSAdapter.extend({
@@ -146,24 +147,4 @@ FF.TaskController = Ember.ObjectController.extend({
 
   timerBinding: 'controllers.time.timer',
   untilMidnightBinding: 'controllers.time.untilMidnight'
-})
-
-FF.WelcomeView = Ember.View.extend({
-  classNames: ['welcome']
-})
-
-FF.TaskView = Ember.View.extend({
-  classNames: ['task'],
-
-  classNameBindings: ['controller.isDoTask:do:dont'],
-
-  progress: function() {
-    var percentage,
-      milisecondsPerDay = 86400000,
-      milisecondsUntilMindnight = this.get("controller.untilMidnight")
-
-    percentage = 100 * (1 - (milisecondsUntilMindnight/milisecondsPerDay));
-
-    return "min-width: "+percentage+ "%";
-  }.property("controller.untilMidnight")
 })

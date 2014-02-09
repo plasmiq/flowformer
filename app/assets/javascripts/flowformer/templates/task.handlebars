@@ -2,19 +2,46 @@
   <div id="clock">
     <div id="timer" {{bind-attr style="view.progress"}}>
       <span>
-        {{#if isCreatedToday}}
-          {{timer}}
-        {{else}}
-          {{#if isDoTask}}
-            MUST DO COMPLETE!
-          {{else}}
-            DONT DO COMPLETE!
-          {{/if}}
-        {{/if}}
+        {{view.progressText}}
       </span>
     </div>
   </div>
   <div id="shadow"></div>
 </div>
 
-{{isDoTask}}
+<div class="centered">
+
+  {{#if completable}}
+    <div id="did-you-complete">
+      <p>
+        <span>Today's time is up, did you {{msgCompletable}}?</span>
+        <a {{action completeTask}} class="button yes color-z">YES</a>
+        <a {{action rejectTask}} class="button no color-y">NO</a>
+      </p>
+    </div>
+  {{/if}}
+
+  <div id="task">
+    <span class="quote"></span>
+
+    {{#unless completed}}
+      {{view Ember.TextArea valueBinding="text" placeholderBinding="view.placeholder" tabindex="1" disabledBinding="isConfirmed" spellcheck="false"}}
+    {{else}}
+      {{view Ember.TextArea valueBinding="msgCompleted" disabled="true" spellcheck="false" class="ending_text"}}
+    {{/unless}}
+
+    <div class="me">me</div>
+
+    <div class="buttons">
+      {{#if agreedable}}
+        <a {{action confirmTask}} class="button">OK</a>
+      {{/if}}
+
+      {{#if completed}}
+        <a {{action startAgain}} class="button">RETURN HOME</a>
+      {{/if}}
+    </div>
+
+  </div>
+
+</div>
