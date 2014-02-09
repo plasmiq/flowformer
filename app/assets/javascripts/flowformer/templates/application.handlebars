@@ -1,15 +1,14 @@
 <menu class="pq-menu">
   <div class="left">
-    <h1><a href="/">Flowformer</a></h1>
+    {{#link-to 'welcome' tagName="h1"}}
+      <a>Flowformer</a>
+    {{/link-to}}
   </div>
   <div class="right">
     {{link-to "History" 'history'}}
     <nav class="pq pq-nav-dropdown">
       <a href="">menu</a>
       <ul>
-        <li>
-          <a href="http://flowformer.com/">flowformer<i class="fa fa-angle-right"></i></a>
-        </li>
         <li>
           <a href="http://timezoneslider.com/">timezoneslider<i class="fa fa-angle-right"></i></a>
         </li>
