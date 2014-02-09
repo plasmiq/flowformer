@@ -1,3 +1,20 @@
-test:
+<div id="header">
+  <div id="clock">
+    <div id="timer" {{bind-attr style="view.progress"}}>
+      <span>
+        {{#if isCreatedToday}}
+          {{timer}}
+        {{else}}
+          {{#if isDoTask}}
+            MUST DO COMPLETE!
+          {{else}}
+            DONT DO COMPLETE!
+          {{/if}}
+        {{/if}}
+      </span>
+    </div>
+  </div>
+  <div id="shadow"></div>
+</div>
 
-{{model.id}}
+{{isDoTask}}

@@ -28,7 +28,16 @@ FF.Task = DS.Model.extend({
   type: DS.attr('string'),
   text: DS.attr('string', {defaultValue: ""}),
   createdAt: DS.attr('date'),
-  completedAt: DS.attr('date')
+  completedAt: DS.attr('date'),
+
+  isDoTask: function() {
+    return this.get('type') === 'do';
+  }.property('type'),
+
+  isCreatedToday: function() {
+    var createdAt = moment(this.get('createdAt'));
+    return createdAt.isAfter(moment().startOf('day')) && createdAt.isBefore(moment().endOf('day'))
+  }.property('createdAt')
 });
 
 FF.WelcomeRoute = Ember.Route.extend({
@@ -132,6 +141,29 @@ FF.WelcomeController = Ember.Controller.extend({
   timerBinding: 'controllers.time.timer'
 })
 
+FF.TaskController = Ember.ObjectController.extend({
+  needs: ['time'],
+
+  timerBinding: 'controllers.time.timer',
+  untilMidnightBinding: 'controllers.time.untilMidnight'
+})
+
 FF.WelcomeView = Ember.View.extend({
   classNames: ['welcome']
+})
+
+FF.TaskView = Ember.View.extend({
+  classNames: ['task'],
+
+  classNameBindings: ['controller.isDoTask:do:dont'],
+
+  progress: function() {
+    var percentage,
+      milisecondsPerDay = 86400000,
+      milisecondsUntilMindnight = this.get("controller.untilMidnight")
+
+    percentage = 100 * (1 - (milisecondsUntilMindnight/milisecondsPerDay));
+
+    return "min-width: "+percentage+ "%";
+  }.property("controller.untilMidnight")
 })
