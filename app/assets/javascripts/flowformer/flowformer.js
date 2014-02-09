@@ -6,6 +6,7 @@
 //= require ember-localstorage-adapter
 //= require_self
 //= require_tree ./templates
+//= require_tree ./routes
 //= require_tree ./views
 FF = Ember.Application.create({
   LOG_TRANSITIONS: true
@@ -59,77 +60,6 @@ FF.Task = DS.Model.extend({
     return !Em.isEmpty(this.get('createdAt'));
   }.property('createdAt')
 });
-
-FF.WelcomeRoute = Ember.Route.extend({
-  actions: {
-    createDoTask: function() {
-      var task = this.store.createRecord('task', {
-        type: 'do'
-      });
-      task.save();
-      this.transitionTo('task');
-    },
-    createDontTask: function() {
-      var task = this.store.createRecord('task', {
-        type: 'dont'
-      });
-      this.transitionTo('task');
-    }
-  },
-
-  beforeModel: function() {
-    var taskController = this.controllerFor('task'),
-      task = taskController.get('model');
-    if(task) {
-      this.transitionTo('task');
-    }
-  },
-
-  exit: function() {
-    this.get('controller.currentUser').save();
-  },
-
-  setupController: function(controller, model) {
-    var store = this.store;
-
-    store.find('currentUser').then(function(result) {
-      var user = result.get('content')[0];
-      if(!user) {
-        user = store.createRecord('currentUser');
-      }
-      controller.set('currentUser', user);
-    });
-  }
-});
-
-FF.TaskRoute = Ember.Route.extend({
-  actions: {
-    confirmTask: function() {
-      var task = this.modelFor('task');
-      task.set('createdAt', new Date());
-      task.save();
-    },
-    startAgain: function() {
-      this.transitionTo('welcome');
-    }
-  },
-
-  model: function() {
-    return this.store.find('task', { completedAt: null }).then(function (result) {
-      var task;
-      if(result) {
-        task = result.get('content')[0];
-      }
-      return task;
-    });
-  },
-
-  afterModel: function(model) {
-    if(!model) {
-      this.transitionTo('welcome');
-    }
-  }
-})
 
 FF.TimeController = Ember.Controller.extend({
 
