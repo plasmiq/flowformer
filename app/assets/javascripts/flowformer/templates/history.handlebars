@@ -1,0 +1,8 @@
+<h1>History</h1>
+<ul>
+{{#each task in model}}
+  <li>
+    {{task.type}}: {{task.text}} ({{task.createdAt}}/{{task.completedAt}}) - {{task.hadSucceed}}
+  </li>
+{{/each}}
+</ul>

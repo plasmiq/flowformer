@@ -7,6 +7,20 @@ FF.TaskRoute = Ember.Route.extend({
     },
     startAgain: function() {
       this.transitionTo('welcome');
+    },
+    completeTask: function() {
+      var task = this.modelFor('task');
+      task.set('createdAt', task.get('createdAt'));
+      task.set('completedAt', new Date());
+      task.set('hadSucceed', true);
+      task.save();
+    },
+    rejectTask: function() {
+      var task = this.modelFor('task');
+      task.set('createdAt', task.get('createdAt'));
+      task.set('completedAt', new Date());
+      task.set('hadSucceed', false);
+      task.save();
     }
   },
 

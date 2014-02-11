@@ -11,6 +11,7 @@ FF.WelcomeRoute = Ember.Route.extend({
       var task = this.store.createRecord('task', {
         type: 'dont'
       });
+      task.save();
       this.transitionTo('task');
     }
   },
@@ -19,7 +20,7 @@ FF.WelcomeRoute = Ember.Route.extend({
     var taskController = this.controllerFor('task'),
       task = taskController.get('model');
     if(task) {
-      this.transitionTo('task');
+      // this.transitionTo('task');
     }
   },
 

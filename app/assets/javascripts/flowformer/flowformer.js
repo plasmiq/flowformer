@@ -30,17 +30,21 @@ FF.CurrentUser = DS.Model.extend({
 
 FF.initializer({
   name: "preload_active_task",
-  initialize: function(container) {
-    var task = container.lookup('route:task').model();
-    container.lookup('controller:task').set('model',task);
+  initialize: function(container, application) {
+    // application.deferReadiness();
+    // var task = container.lookup('route:task').model().then(function(task) {
+      // application.advanceReadiness();
+      // return task;
+    // });
+    // container.lookup('controller:task').set('model',task);
   }
 });
 
-
 FF.Task = DS.Model.extend({
-  type: DS.attr('string'),
-  text: DS.attr('string', {defaultValue: ""}),
-  createdAt: DS.attr('date'),
+  type:        DS.attr('string'),
+  text:        DS.attr('string', {defaultValue: ""}),
+  createdAt:   DS.attr('date'),
+  hadSucceed:  DS.attr('boolean'),
   completedAt: DS.attr('date'),
 
   isDoTask: function() {
@@ -51,6 +55,10 @@ FF.Task = DS.Model.extend({
     var createdAt = moment(this.get('createdAt'));
     return createdAt.isAfter(moment().startOf('day')) && createdAt.isBefore(moment().endOf('day'))
   }.property('createdAt'),
+
+  isAgreedable: function() {
+    return !this.get('isConfirmed') && (this.get('text').length > 3);
+  }.property('text', 'isConfirmed'),
 
   isCompleted: function() {
     return !Em.isEmpty(this.get('completedAt'));
@@ -106,9 +114,10 @@ FF.TaskController = Ember.ObjectController.extend({
   timerBinding: 'controllers.time.timer',
   untilMidnightBinding: 'controllers.time.untilMidnight',
 
-  isAgreedable: function() {
-    return !this.get('isConfirmed') && (this.get('text').length > 3);
-  }.property('text', 'isConfirmed')
+  isCompletable: function() {
+    var createdAt = moment(this.get('createdAt'));
+    return !createdAt.isAfter(moment().endOf('day'));
+  }.property('createdAt', 'timer')
 })
 
 Ember.TextArea.reopen({

@@ -23,6 +23,14 @@ FF.TaskView = Ember.View.extend({
     return placeholder;
   }.property('controller.isDoTask'),
 
+  completableText: function() {
+    return this.get('controller.isDoTask') ? 'succeed' : 'fail';
+  }.property('controller.isDoTask'),
+
+  completedText: function() {
+    return this.get('controller.hadSucceed') ? 'Nice!' : 'WTF?';
+  }.property('controller.hadSucceed'),
+
   progressText: function() {
     var text;
     if(this.get('controller.isCreatedToday')) {

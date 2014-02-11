@@ -14,20 +14,21 @@
   {{#if isCompletable}}
     <div id="did-you-complete">
       <p>
-        <span>Today's time is up, did you {{msgCompletable}}?</span>
-        <a {{action completeTask}} class="button yes color-z">YES</a>
-        <a {{action rejectTask}} class="button no color-y">NO</a>
+        <span>Today's time is up, did you {{view.completableText}}?</span>
+        <a {{action completeTask}} class="pq pq-button-inline pq-color-z">YES</a>
+        <a {{action rejectTask}} class="pq pq-button-inline pq-color-y">NO</a>
       </p>
     </div>
   {{/if}}
+  {{createdAt}} - {{hadSucceed}}
 
   <div id="task">
     <span class="quote">&ldquo;</span>
 
-    {{#unless completed}}
+    {{#unless isCompleted}}
       {{view Ember.TextArea valueBinding="text" placeholderBinding="view.placeholder" tabindex="1" disabledBinding="isConfirmed" spellcheck="false"}}
     {{else}}
-      {{view Ember.TextArea valueBinding="msgCompleted" disabled="true" spellcheck="false" class="ending_text"}}
+      {{view Ember.TextArea valueBinding="view.completedText" disabled="true" spellcheck="false" class="ending_text"}}
     {{/unless}}
 
     <div class="me">me</div>
