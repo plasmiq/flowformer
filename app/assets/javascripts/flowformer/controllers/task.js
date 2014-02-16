@@ -6,6 +6,6 @@ FF.TaskController = Ember.ObjectController.extend({
 
   isCompletable: function() {
     var createdAt = moment(this.get('createdAt'));
-    return createdAt.isAfter(moment().endOf('day'));
-  }.property('createdAt', 'timer')
+    return createdAt.isBefore(moment().startOf('day')) && !this.get('completedAt');
+  }.property('createdAt', 'timer', 'completedAt')
 });
