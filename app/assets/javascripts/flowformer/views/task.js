@@ -33,7 +33,7 @@ FF.TaskView = Ember.View.extend({
 
   progressText: function() {
     var text;
-    if(this.get('controller.isCreatedToday')) {
+    if(this.get('controller.isCreatedToday') || !this.get('controller.createdAt')) {
       text = this.get('controller.timer')
     } else {
       if(this.get('controller.isDoTask')) {
