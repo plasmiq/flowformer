@@ -1,0 +1,162 @@
+.task_history {
+  font-size: 24pt;
+}
+
+.history {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  color: white;
+
+  .calendar {
+    width: 60%;
+    float: left;
+    position: relative;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .details {
+    width: 40%;
+    float: right;
+    .details_wrapper {
+      padding-top: 5em;
+      padding-left: 1em;
+    }
+    .quotemark {
+      width: 36px;
+      height: 28px;
+      background: url('/assets/quotemark.png') no-repeat;
+      background-size: 36px 28px;
+      float: left;
+      margin-right: 10px;
+    }
+    .content {
+      float: left;
+
+      .subcontent {
+        border-bottom: 2px solid #fff;
+        font-size: 0.8em;
+        .text {
+          font-size: 1.5em;
+          font-weight: bold;
+        }
+        .me {
+          font-size: 1.3em;
+          font-weight: normal;
+          margin-top: 0.2em;
+          margin-bottom: 0.7em;
+        }
+        .completed-at {
+          font-size: 1.2em;
+          font-weight: bold;
+        }
+      }
+      .completed {
+        font-size: 0.6em;
+        font-weight: normal;
+      }
+    }
+  }
+
+  .welcomeicon {
+    width: 22px;
+    height: 20px;
+    display: block;
+    margin-left: 20px;
+    margin-top: 20px;
+    background: url("home_button.png") 0 0;
+  }
+
+  .welcomeicon:hover {
+    background-position: 22px 0;
+  }
+
+  .month {
+    width: 50%;
+    float: left;
+    font-family: 'Open Sans';
+    text-transform: uppercase;
+
+    font-weight: 800;
+
+    .select-month {
+      font-size: 1.0em;
+      float: left;
+      cursor: pointer;
+      margin-top: -6px;
+      color: #8F8F8F !important;
+
+      &.prev {
+        margin-right: 1em;
+      }
+      &.next {
+        margin-left: 1em;
+      }
+    }
+    &.current .select-month.prev {
+      display: none;
+    }
+
+    .name {
+      font-size: 0.8em;
+      font-style: italic;
+      color: #DFDFDF;
+    }
+
+    .content {
+      float: left;
+      padding: 0px !important;
+    }
+  }
+
+  .month-view {
+    margin-bottom: 3px;
+    overflow: hidden;
+    a {
+      display: block;
+      float: left;
+      height: 22px;
+      width: 22px;
+      background-color: #414141;
+      border: 2px solid #414141;
+      overflow: hidden;
+      margin-right: 0.15em;
+      margin-top: 0.15em;
+      font-size: 14px;
+    }
+
+    a.disabled {
+      background-color: #414141;
+    }
+
+    a.empty {
+      background-color: black;
+    }
+
+    a.smile {
+      color: #fff !important;
+      text-align: center;
+    }
+
+    a.smile.dodo {
+      background-color: #009d9b;
+      border-color: #009d9b;
+    }
+
+    a.smile.dontdo {
+      background-color: #ff2f53;
+      border-color: #ff2f53;
+    }
+
+    .day-name {
+      width: 40px;
+      font-size: 0.45em;
+      text-align: left;
+      margin-top: 0.5em;
+      margin-bottom: 0.3em;
+      display: block;
+      color: #A9A9A9;
+    }
+  }
+}

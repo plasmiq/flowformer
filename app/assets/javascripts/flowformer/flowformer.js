@@ -65,4 +65,4 @@ Ember.TextArea.reopen({
       elem.val(new_text);
     }
   }
-})
+});

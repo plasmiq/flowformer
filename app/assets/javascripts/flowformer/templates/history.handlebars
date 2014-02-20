@@ -6,3 +6,25 @@
   </li>
 {{/each}}
 </ul>
+<div class="task_history">
+  <div class='calendar'>
+    <div class='month prev'>
+      <div class='month-content'>
+        <a {{action selectPrevMonth}} class='select-month prev'><i class="fa fa-angle-left"></i></a>
+        <div class='content'>
+          <div class='name'>XXX</div>
+          {{#each dayName in dayNames}}
+            <div class='month-view'>
+              <div class='day-name'>{{dayName}}</div>
+              {{#each seq in daySeqs}}
+                {{#view FF.DayTaskView daySeq=seq dayName=dayName}}
+                  <a class='disabled'>{{view.task}}</a>
+                {{/view}}
+              {{/each}}
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
